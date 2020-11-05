@@ -31,6 +31,4 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 
 ## Show your support
 
-xxx
-
 Give a ⭐️ if this project helped you!
