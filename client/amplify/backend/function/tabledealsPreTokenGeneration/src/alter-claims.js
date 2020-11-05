@@ -6,8 +6,8 @@ exports.handler = async (event, context, callback) => {
 				event: JSON.stringify(event.userName),
 				'https://hasura.io/jwt/claims': JSON.stringify({
 					'x-hasura-allowed-roles': event.request.groupConfiguration.groupsToOverride,
-					'x-hasura-default-role': 'users',
-					'x-hasura-user-id': event.userName
+					'x-hasura-default-role': 'user',
+					'x-hasura-user-id': event.request.userAttributes.sub
 				})
 			},
 		},

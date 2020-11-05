@@ -95,7 +95,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-tabledeals-dev-114139-deployment",
-					"S3Key": "amplify-builds/tabledealsPreTokenGeneration-68534d32364d72762f74-build.zip"
+					"S3Key": "amplify-builds/tabledealsPreTokenGeneration-535154352b716f644a6a-build.zip"
 				}
 			}
 		},
