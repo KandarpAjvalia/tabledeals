@@ -9,6 +9,7 @@
     "lint": "./node_modules/.bin/eslint --fix ."
   },
   "dependencies": {
+    "aws-amplify": "^3.3.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },

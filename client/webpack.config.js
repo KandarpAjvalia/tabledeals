@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
 	entry: './src/index.js',
 	resolve: {
-		extensions: ['.js']
+		extensions: ['.mjs', '.js']
 	},
 	output: {
 		path: path.join(path.resolve(), '/dist'),
@@ -15,7 +15,20 @@ module.exports = {
 		rules: [{
 			test: /\.js$/,
 			exclude: /node_modules/,
-			loader: 'babel-loader'
+			loader: 'babel-loader',
+			options: {
+				presets: [
+					[
+						'@babel/preset-env',
+						{
+							targets: {
+								esmodules: true
+							}
+						}
+					],
+					'@babel/preset-react'
+				]
+			}
 		}, {
 			test: /\.css$/,
 			use: ['style-loader', 'css-loader']
