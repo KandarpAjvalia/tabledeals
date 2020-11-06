@@ -8,6 +8,10 @@ const App = () => {
 		})
 	}
 
+	const handleGoogleSignout = () => {
+		Auth.signOut()
+	}
+
 	const getUser = async () => {
 		const user = await Auth.currentAuthenticatedUser()
 		console.log(user)
@@ -27,6 +31,12 @@ const App = () => {
 					onClick={getUser}
 				>
 					Get user
+				</button>
+				<button
+					type="button"
+					onClick={handleGoogleSignout}
+				>
+					Sign Out
 				</button>
 			</header>
 		</div>
