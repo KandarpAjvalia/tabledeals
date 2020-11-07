@@ -19,9 +19,8 @@ import {
 import { Link as RouterLink } from 'react-router-dom'
 
 function Logout() {
-
 	return (
-			<Button variantColor="orange" size="lg" fontSize="xl" pos="absolute" right="75px" top="15px">Log out</Button>
+		<Button variantColor="orange" size="lg" fontSize="xl" pos="absolute" right="75px" top="15px">Log out</Button>
 	)
 }
 

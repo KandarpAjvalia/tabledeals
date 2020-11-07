@@ -14,10 +14,10 @@ import Deals from './Deals/Deals'
 function AppContainer() {
 	return (
 		  <Router>
-    <Route path="/d" component={Home} />
-    <Route path="/" component={Deals} />
-  </Router>
-  );
+			<Route path="/" component={Home} />
+			<Route path="/deals" component={Deals} />
+    </Router>
+	)
 }
 
 export default AppContainer
