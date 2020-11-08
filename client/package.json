@@ -4,8 +4,7 @@
   "private": true,
   "proxy": "http://localhost:4000",
   "scripts": {
-    "dev": "npm run lint & webpack-dev-server --mode development --open --hot --port 8080", //--host 0.0.0.0 --disable-host-check", Add in if using cloud9 ide
-    "build": "webpack --mode production",
+    "dev": "npm run lint & webpack-dev-server --mode development --open --hot --port 8080",
     "lint": "./node_modules/.bin/eslint --fix ."
   },
   "dependencies": {

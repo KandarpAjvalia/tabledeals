@@ -1,22 +1,5 @@
 import React from 'react'
-import {
-	Modal,
-	ModalOverlay,
-	ModalContent,
-	ModalHeader,
-	ModalFooter,
-	ModalBody,
-	ModalCloseButton,
-	Button,
-	Box,
-	FormControl,
-	FormLabel,
-	useDisclosure,
-	Link,
-	Icon,
-}
-	from '@chakra-ui/core'
-import { Link as RouterLink } from 'react-router-dom'
+import Button from '@chakra-ui/core'
 
 function Logout() {
 	return (

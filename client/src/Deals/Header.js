@@ -14,12 +14,12 @@ function Header() {
 			</Heading>
 			<Logout />
 			<Avatar
-  size="md"
-  name="Kola Tioluwani"
-  src="https://bit.ly/tioluwani-kolawole"
-  pos="absolute"
-  right="15px"
-  top="15px"
+				size="md"
+				name="Kola Tioluwani"
+				src="https://bit.ly/tioluwani-kolawole"
+				pos="absolute"
+				right="15px"
+				top="15px"
 			/>
 		</Flex>
 	)
