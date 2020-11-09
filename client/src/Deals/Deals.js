@@ -1,12 +1,16 @@
 import React from 'react'
+import { Box } from '@chakra-ui/core'
 import Header from './Header'
-// import Body from './Body'
+import Body from './Body'
+import Sidebar from './Sidebar'
 
 function Deals() {
 	return (
-		<div>
+		<Box>
 			<Header />
-		</div>
+			<Body />
+			<Sidebar />
+		</Box>
 	)
 }
 

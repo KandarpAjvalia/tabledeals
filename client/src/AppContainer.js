@@ -9,8 +9,8 @@ import Deals from './Deals/Deals'
 function AppContainer() {
 	return (
 		<Router>
-			<Route path="/" component={Home} />
-			<Route path="/deals" component={Deals} />
+			<Route path="/d" component={Home} />
+			<Route path="/" component={Deals} />
 		</Router>
 	)
 }
