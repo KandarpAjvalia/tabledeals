@@ -4,7 +4,7 @@ import Header from './Header'
 import Body from './Body'
 import Sidebar from './Sidebar'
 
-function Deals() {
+const Deals = () => {
 	return (
 		<Box>
 			<Header />

@@ -4,7 +4,7 @@ import {
 	Text, Flex, Stack, Button
 } from '@chakra-ui/core'
 
-function Body() {
+const Body = () => {
 	return (
 		<Flex pt="50px" pb="25px" pl="500px" pr="500px">
 			<Stack spacing={3}>

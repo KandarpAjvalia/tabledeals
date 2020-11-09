@@ -18,7 +18,7 @@ import {
 	from '@chakra-ui/core'
 import { Link as RouterLink } from 'react-router-dom'
 
-function Login() {
+const Login = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure()
 
 	const initialRef = React.useRef()

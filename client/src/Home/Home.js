@@ -2,7 +2,7 @@ import React from 'react'
 import Header from './Header'
 import Body from './Body'
 
-function Home() {
+const Home = () => {
 	return (
 		<div>
 			<Header />

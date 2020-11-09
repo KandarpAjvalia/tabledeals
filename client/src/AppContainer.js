@@ -6,7 +6,7 @@ import {
 import Home from './Home/Home'
 import Deals from './Deals/Deals'
 
-function AppContainer() {
+const AppContainer = () => {
 	return (
 		<Router>
 			<Route path="/d" component={Home} />

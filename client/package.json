@@ -4,7 +4,8 @@
   "private": true,
   "proxy": "http://localhost:4000",
   "scripts": {
-    "dev": "npm run lint & webpack-dev-server --mode development --open --hot --port 8080",
+    "dev": "npm run lint & webpack-dev-server --mode development --open --hot --port 8080 --host 0.0.0.0 --disable-host-check",
+    "build": "webpack --mode production",
     "lint": "./node_modules/.bin/eslint --fix ."
   },
   "dependencies": {

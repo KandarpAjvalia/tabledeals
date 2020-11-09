@@ -5,7 +5,7 @@ import {
 } from '@chakra-ui/core'
 import Login from './Login'
 
-function Header() {
+const Header = () => {
 	return (
 		<Flex pt="10px" pb="10px" bg="gray.100">
 

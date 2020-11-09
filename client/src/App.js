@@ -2,7 +2,7 @@ import React from 'react'
 import { ThemeProvider, theme, CSSReset } from '@chakra-ui/core'
 import AppContainer from './AppContainer'
 
-function App() {
+const App = () => {
 	return (
 		<ThemeProvider theme={theme}>
 			<CSSReset />

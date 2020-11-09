@@ -4,9 +4,10 @@ import {
 	Text, Flex, Stack, Button
 } from '@chakra-ui/core'
 import Deal from './Deal'
-function Body() {
+
+const Body = () => {
 	return (
-		<Flex mt='50px' pt="10px" pb="25px" pl="400px" pr="500px" position='absolute'>
+		<Flex mt="50px" pt="10px" pb="25px" pl="400px" pr="500px" position="absolute">
 			<Stack spacing={10}>
 				<Deal />
 				<Deal />
