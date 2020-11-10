@@ -12,7 +12,8 @@
     },
     "rules": {
         "no-console": "off",
-        "no-tabs": "off",
+		"no-tabs": "off",
+        "comma-dangle": "off",
         "indent": [
             "error",
             "tab"

@@ -1,0 +1,819 @@
+schema {
+  query: query_root
+  subscription: subscription_root
+}
+
+# columns and relationships of "deal"
+type deal {
+  created_by: uuid!
+  description: String!
+  id: uuid!
+
+  # An object relationship
+  restaurant: restaurant!
+  restaurant_id: uuid!
+  title: String!
+  type: String!
+
+  # An object relationship
+  user: users!
+
+  # An array relationship
+  user_deals(
+    # distinct select on columns
+    distinct_on: [user_deal_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [user_deal_order_by!]
+
+    # filter the rows returned
+    where: user_deal_bool_exp
+  ): [user_deal!]!
+
+  # An aggregated array relationship
+  user_deals_aggregate(
+    # distinct select on columns
+    distinct_on: [user_deal_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [user_deal_order_by!]
+
+    # filter the rows returned
+    where: user_deal_bool_exp
+  ): user_deal_aggregate!
+}
+
+# Boolean expression to filter rows from the table "deal". All fields are combined with a logical 'AND'.
+input deal_bool_exp {
+  _and: [deal_bool_exp]
+  _not: deal_bool_exp
+  _or: [deal_bool_exp]
+  created_by: uuid_comparison_exp
+  description: String_comparison_exp
+  id: uuid_comparison_exp
+  restaurant: restaurant_bool_exp
+  restaurant_id: uuid_comparison_exp
+  title: String_comparison_exp
+  type: String_comparison_exp
+  user: users_bool_exp
+  user_deals: user_deal_bool_exp
+}
+
+# ordering options when selecting data from "deal"
+input deal_order_by {
+  created_by: order_by
+  description: order_by
+  id: order_by
+  restaurant: restaurant_order_by
+  restaurant_id: order_by
+  title: order_by
+  type: order_by
+  user: users_order_by
+  user_deals_aggregate: user_deal_aggregate_order_by
+}
+
+# primary key columns input for table: "deal"
+input deal_pk_columns_input {
+  id: uuid!
+}
+
+# select columns of table "deal"
+enum deal_select_column {
+  # column name
+  created_by
+
+  # column name
+  description
+
+  # column name
+  id
+
+  # column name
+  restaurant_id
+
+  # column name
+  title
+
+  # column name
+  type
+}
+
+# expression to compare columns of type Int. All fields are combined with logical 'AND'.
+input Int_comparison_exp {
+  _eq: Int
+  _gt: Int
+  _gte: Int
+  _in: [Int!]
+  _is_null: Boolean
+  _lt: Int
+  _lte: Int
+  _neq: Int
+  _nin: [Int!]
+}
+
+# column ordering options
+enum order_by {
+  # in the ascending order, nulls last
+  asc
+
+  # in the ascending order, nulls first
+  asc_nulls_first
+
+  # in the ascending order, nulls last
+  asc_nulls_last
+
+  # in the descending order, nulls first
+  desc
+
+  # in the descending order, nulls first
+  desc_nulls_first
+
+  # in the descending order, nulls last
+  desc_nulls_last
+}
+
+# query root
+type query_root {
+  # fetch data from the table: "deal"
+  deal(
+    # distinct select on columns
+    distinct_on: [deal_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [deal_order_by!]
+
+    # filter the rows returned
+    where: deal_bool_exp
+  ): [deal!]!
+
+  # fetch data from the table: "deal" using primary key columns
+  deal_by_pk(id: uuid!): deal
+
+  # fetch data from the table: "restaurant"
+  restaurant(
+    # distinct select on columns
+    distinct_on: [restaurant_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [restaurant_order_by!]
+
+    # filter the rows returned
+    where: restaurant_bool_exp
+  ): [restaurant!]!
+
+  # fetch data from the table: "restaurant" using primary key columns
+  restaurant_by_pk(id: uuid!): restaurant
+
+  # fetch data from the table: "user_deal"
+  user_deal(
+    # distinct select on columns
+    distinct_on: [user_deal_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [user_deal_order_by!]
+
+    # filter the rows returned
+    where: user_deal_bool_exp
+  ): [user_deal!]!
+
+  # fetch aggregated fields from the table: "user_deal"
+  user_deal_aggregate(
+    # distinct select on columns
+    distinct_on: [user_deal_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [user_deal_order_by!]
+
+    # filter the rows returned
+    where: user_deal_bool_exp
+  ): user_deal_aggregate!
+
+  # fetch data from the table: "user_deal" using primary key columns
+  user_deal_by_pk(id: uuid!): user_deal
+
+  # fetch data from the table: "users"
+  users(
+    # distinct select on columns
+    distinct_on: [users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [users_order_by!]
+
+    # filter the rows returned
+    where: users_bool_exp
+  ): [users!]!
+
+  # fetch data from the table: "users" using primary key columns
+  users_by_pk(id: uuid!): users
+}
+
+# columns and relationships of "restaurant"
+type restaurant {
+  city: String!
+  closing_time: time!
+
+  # An array relationship
+  deals(
+    # distinct select on columns
+    distinct_on: [deal_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [deal_order_by!]
+
+    # filter the rows returned
+    where: deal_bool_exp
+  ): [deal!]!
+  description: String!
+  id: uuid!
+  image_url: String!
+  name: String!
+  opening_time: time!
+  state: String!
+  street: String!
+  zip: String!
+}
+
+# Boolean expression to filter rows from the table "restaurant". All fields are combined with a logical 'AND'.
+input restaurant_bool_exp {
+  _and: [restaurant_bool_exp]
+  _not: restaurant_bool_exp
+  _or: [restaurant_bool_exp]
+  city: String_comparison_exp
+  closing_time: time_comparison_exp
+  deals: deal_bool_exp
+  description: String_comparison_exp
+  id: uuid_comparison_exp
+  image_url: String_comparison_exp
+  name: String_comparison_exp
+  opening_time: time_comparison_exp
+  state: String_comparison_exp
+  street: String_comparison_exp
+  zip: String_comparison_exp
+}
+
+# ordering options when selecting data from "restaurant"
+input restaurant_order_by {
+  city: order_by
+  closing_time: order_by
+  description: order_by
+  id: order_by
+  image_url: order_by
+  name: order_by
+  opening_time: order_by
+  state: order_by
+  street: order_by
+  zip: order_by
+}
+
+# primary key columns input for table: "restaurant"
+input restaurant_pk_columns_input {
+  id: uuid!
+}
+
+# select columns of table "restaurant"
+enum restaurant_select_column {
+  # column name
+  city
+
+  # column name
+  closing_time
+
+  # column name
+  description
+
+  # column name
+  id
+
+  # column name
+  image_url
+
+  # column name
+  name
+
+  # column name
+  opening_time
+
+  # column name
+  state
+
+  # column name
+  street
+
+  # column name
+  zip
+}
+
+# expression to compare columns of type String. All fields are combined with logical 'AND'.
+input String_comparison_exp {
+  _eq: String
+  _gt: String
+  _gte: String
+  _ilike: String
+  _in: [String!]
+  _is_null: Boolean
+  _like: String
+  _lt: String
+  _lte: String
+  _neq: String
+  _nilike: String
+  _nin: [String!]
+  _nlike: String
+  _nsimilar: String
+  _similar: String
+}
+
+# subscription root
+type subscription_root {
+  # fetch data from the table: "deal"
+  deal(
+    # distinct select on columns
+    distinct_on: [deal_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [deal_order_by!]
+
+    # filter the rows returned
+    where: deal_bool_exp
+  ): [deal!]!
+
+  # fetch data from the table: "deal" using primary key columns
+  deal_by_pk(id: uuid!): deal
+
+  # fetch data from the table: "restaurant"
+  restaurant(
+    # distinct select on columns
+    distinct_on: [restaurant_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [restaurant_order_by!]
+
+    # filter the rows returned
+    where: restaurant_bool_exp
+  ): [restaurant!]!
+
+  # fetch data from the table: "restaurant" using primary key columns
+  restaurant_by_pk(id: uuid!): restaurant
+
+  # fetch data from the table: "user_deal"
+  user_deal(
+    # distinct select on columns
+    distinct_on: [user_deal_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [user_deal_order_by!]
+
+    # filter the rows returned
+    where: user_deal_bool_exp
+  ): [user_deal!]!
+
+  # fetch aggregated fields from the table: "user_deal"
+  user_deal_aggregate(
+    # distinct select on columns
+    distinct_on: [user_deal_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [user_deal_order_by!]
+
+    # filter the rows returned
+    where: user_deal_bool_exp
+  ): user_deal_aggregate!
+
+  # fetch data from the table: "user_deal" using primary key columns
+  user_deal_by_pk(id: uuid!): user_deal
+
+  # fetch data from the table: "users"
+  users(
+    # distinct select on columns
+    distinct_on: [users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [users_order_by!]
+
+    # filter the rows returned
+    where: users_bool_exp
+  ): [users!]!
+
+  # fetch data from the table: "users" using primary key columns
+  users_by_pk(id: uuid!): users
+}
+
+scalar time
+
+# expression to compare columns of type time. All fields are combined with logical 'AND'.
+input time_comparison_exp {
+  _eq: time
+  _gt: time
+  _gte: time
+  _in: [time!]
+  _is_null: Boolean
+  _lt: time
+  _lte: time
+  _neq: time
+  _nin: [time!]
+}
+
+# columns and relationships of "user_deal"
+type user_deal {
+  comment: String
+
+  # An object relationship
+  deal: deal!
+  deal_id: uuid!
+  id: uuid!
+
+  # An object relationship
+  user: users!
+  user_id: uuid!
+  vote: Int
+}
+
+# aggregated selection of "user_deal"
+type user_deal_aggregate {
+  aggregate: user_deal_aggregate_fields
+  nodes: [user_deal!]!
+}
+
+# aggregate fields of "user_deal"
+type user_deal_aggregate_fields {
+  avg: user_deal_avg_fields
+  count(columns: [user_deal_select_column!], distinct: Boolean): Int
+  max: user_deal_max_fields
+  min: user_deal_min_fields
+  stddev: user_deal_stddev_fields
+  stddev_pop: user_deal_stddev_pop_fields
+  stddev_samp: user_deal_stddev_samp_fields
+  sum: user_deal_sum_fields
+  var_pop: user_deal_var_pop_fields
+  var_samp: user_deal_var_samp_fields
+  variance: user_deal_variance_fields
+}
+
+# order by aggregate values of table "user_deal"
+input user_deal_aggregate_order_by {
+  avg: user_deal_avg_order_by
+  count: order_by
+  max: user_deal_max_order_by
+  min: user_deal_min_order_by
+  stddev: user_deal_stddev_order_by
+  stddev_pop: user_deal_stddev_pop_order_by
+  stddev_samp: user_deal_stddev_samp_order_by
+  sum: user_deal_sum_order_by
+  var_pop: user_deal_var_pop_order_by
+  var_samp: user_deal_var_samp_order_by
+  variance: user_deal_variance_order_by
+}
+
+# aggregate avg on columns
+type user_deal_avg_fields {
+  vote: Float
+}
+
+# order by avg() on columns of table "user_deal"
+input user_deal_avg_order_by {
+  vote: order_by
+}
+
+# Boolean expression to filter rows from the table "user_deal". All fields are combined with a logical 'AND'.
+input user_deal_bool_exp {
+  _and: [user_deal_bool_exp]
+  _not: user_deal_bool_exp
+  _or: [user_deal_bool_exp]
+  comment: String_comparison_exp
+  deal: deal_bool_exp
+  deal_id: uuid_comparison_exp
+  id: uuid_comparison_exp
+  user: users_bool_exp
+  user_id: uuid_comparison_exp
+  vote: Int_comparison_exp
+}
+
+# aggregate max on columns
+type user_deal_max_fields {
+  comment: String
+  deal_id: uuid
+  id: uuid
+  user_id: uuid
+  vote: Int
+}
+
+# order by max() on columns of table "user_deal"
+input user_deal_max_order_by {
+  comment: order_by
+  deal_id: order_by
+  id: order_by
+  user_id: order_by
+  vote: order_by
+}
+
+# aggregate min on columns
+type user_deal_min_fields {
+  comment: String
+  deal_id: uuid
+  id: uuid
+  user_id: uuid
+  vote: Int
+}
+
+# order by min() on columns of table "user_deal"
+input user_deal_min_order_by {
+  comment: order_by
+  deal_id: order_by
+  id: order_by
+  user_id: order_by
+  vote: order_by
+}
+
+# ordering options when selecting data from "user_deal"
+input user_deal_order_by {
+  comment: order_by
+  deal: deal_order_by
+  deal_id: order_by
+  id: order_by
+  user: users_order_by
+  user_id: order_by
+  vote: order_by
+}
+
+# primary key columns input for table: "user_deal"
+input user_deal_pk_columns_input {
+  id: uuid!
+}
+
+# select columns of table "user_deal"
+enum user_deal_select_column {
+  # column name
+  comment
+
+  # column name
+  deal_id
+
+  # column name
+  id
+
+  # column name
+  user_id
+
+  # column name
+  vote
+}
+
+# aggregate stddev on columns
+type user_deal_stddev_fields {
+  vote: Float
+}
+
+# order by stddev() on columns of table "user_deal"
+input user_deal_stddev_order_by {
+  vote: order_by
+}
+
+# aggregate stddev_pop on columns
+type user_deal_stddev_pop_fields {
+  vote: Float
+}
+
+# order by stddev_pop() on columns of table "user_deal"
+input user_deal_stddev_pop_order_by {
+  vote: order_by
+}
+
+# aggregate stddev_samp on columns
+type user_deal_stddev_samp_fields {
+  vote: Float
+}
+
+# order by stddev_samp() on columns of table "user_deal"
+input user_deal_stddev_samp_order_by {
+  vote: order_by
+}
+
+# aggregate sum on columns
+type user_deal_sum_fields {
+  vote: Int
+}
+
+# order by sum() on columns of table "user_deal"
+input user_deal_sum_order_by {
+  vote: order_by
+}
+
+# aggregate var_pop on columns
+type user_deal_var_pop_fields {
+  vote: Float
+}
+
+# order by var_pop() on columns of table "user_deal"
+input user_deal_var_pop_order_by {
+  vote: order_by
+}
+
+# aggregate var_samp on columns
+type user_deal_var_samp_fields {
+  vote: Float
+}
+
+# order by var_samp() on columns of table "user_deal"
+input user_deal_var_samp_order_by {
+  vote: order_by
+}
+
+# aggregate variance on columns
+type user_deal_variance_fields {
+  vote: Float
+}
+
+# order by variance() on columns of table "user_deal"
+input user_deal_variance_order_by {
+  vote: order_by
+}
+
+# columns and relationships of "users"
+type users {
+  # An array relationship
+  deals(
+    # distinct select on columns
+    distinct_on: [deal_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [deal_order_by!]
+
+    # filter the rows returned
+    where: deal_bool_exp
+  ): [deal!]!
+  id: uuid!
+  name: String!
+  profile_pic: String!
+
+  # An array relationship
+  user_deals(
+    # distinct select on columns
+    distinct_on: [user_deal_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [user_deal_order_by!]
+
+    # filter the rows returned
+    where: user_deal_bool_exp
+  ): [user_deal!]!
+
+  # An aggregated array relationship
+  user_deals_aggregate(
+    # distinct select on columns
+    distinct_on: [user_deal_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [user_deal_order_by!]
+
+    # filter the rows returned
+    where: user_deal_bool_exp
+  ): user_deal_aggregate!
+}
+
+# Boolean expression to filter rows from the table "users". All fields are combined with a logical 'AND'.
+input users_bool_exp {
+  _and: [users_bool_exp]
+  _not: users_bool_exp
+  _or: [users_bool_exp]
+  deals: deal_bool_exp
+  id: uuid_comparison_exp
+  name: String_comparison_exp
+  profile_pic: String_comparison_exp
+  user_deals: user_deal_bool_exp
+}
+
+# ordering options when selecting data from "users"
+input users_order_by {
+  id: order_by
+  name: order_by
+  profile_pic: order_by
+  user_deals_aggregate: user_deal_aggregate_order_by
+}
+
+# primary key columns input for table: "users"
+input users_pk_columns_input {
+  id: uuid!
+}
+
+# select columns of table "users"
+enum users_select_column {
+  # column name
+  id
+
+  # column name
+  name
+
+  # column name
+  profile_pic
+}
+
+scalar uuid
+
+# expression to compare columns of type uuid. All fields are combined with logical 'AND'.
+input uuid_comparison_exp {
+  _eq: uuid
+  _gt: uuid
+  _gte: uuid
+  _in: [uuid!]
+  _is_null: Boolean
+  _lt: uuid
+  _lte: uuid
+  _neq: uuid
+  _nin: [uuid!]
+}
+
