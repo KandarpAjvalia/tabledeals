@@ -4,14 +4,19 @@
   "private": true,
   "proxy": "http://localhost:4000",
   "scripts": {
-    "dev": "npm run lint & webpack-dev-server --mode development --open --hot --port 3000",
+    "dev": "npm run lint & webpack-dev-server --mode development --open --hot --port 8080 --host 0.0.0.0 --disable-host-check",
     "build": "webpack --mode production",
     "lint": "./node_modules/.bin/eslint --fix ."
   },
   "dependencies": {
+    "@chakra-ui/core": "^0.8.0",
+    "@emotion/core": "^10.1.1",
+    "@emotion/styled": "^10.0.27",
+    "emotion-theming": "^10.0.27",
     "aws-amplify": "^3.3.7",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",

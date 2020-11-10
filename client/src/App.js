@@ -1,6 +1,8 @@
 import React, { useContext, useEffect } from 'react'
 import { Auth, Hub } from 'aws-amplify'
+import { ThemeProvider, theme, CSSReset } from '@chakra-ui/core'
 import { Context as UserContext } from './context/UserContext'
+import AppContainer from './AppContainer'
 
 const App = () => {
 	const userContext = useContext(UserContext)
@@ -64,29 +66,32 @@ const App = () => {
 	}
 
 	return (
-		<div className="App">
-			<header className="App-header">
-				<button
-					type="button"
-					onClick={handleGoogleLogin}
-				>
-					Sign in with Google
-				</button>
-				<button
-					type="button"
-					onClick={getUser}
-				>
-					Get user
-				</button>
-				<button
-					type="button"
-					onClick={handleGoogleSignout}
-				>
-					Sign Out
-				</button>
-			</header>
-		</div>
+		<ThemeProvider theme={theme}>
+			<CSSReset />
+			<AppContainer />
+			<div className="App">
+				<header className="App-header">
+					<button
+						type="button"
+						onClick={handleGoogleLogin}
+					>
+						Sign in with Google
+					</button>
+					<button
+						type="button"
+						onClick={getUser}
+					>
+						Get user
+					</button>
+					<button
+						type="button"
+						onClick={handleGoogleSignout}
+					>
+						Sign Out
+					</button>
+				</header>
+			</div>
+		</ThemeProvider>
 	)
 }
-
 export default App
