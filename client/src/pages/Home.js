@@ -2,8 +2,8 @@ import React, { useEffect, useContext } from 'react'
 import { Auth, Hub } from 'aws-amplify'
 import { useHistory } from 'react-router-dom'
 import { Context as UserContext } from '../context/UserContext'
-import Header from '../components/Header'
-import Body from '../components/Body'
+import HomepageHeader from '../components/HomepageHeader'
+import HomepageBody from '../components/HomepageBody'
 
 const Home = () => {
 	const userContext = useContext(UserContext)
@@ -34,12 +34,10 @@ const Home = () => {
 		const authListener = (data) => {
 			switch (data.payload.event) {
 			case 'signIn':
-				console.log('sign in')
 				setUserData()
 				history.push('/deals')
 				break
 			case 'signOut':
-				console.log('sign out')
 				handleSignOut()
 				break
 			default:
@@ -55,8 +53,8 @@ const Home = () => {
 
 	return (
 		<div>
-			<Header />
-			<Body />
+			<HomepageHeader />
+			<HomepageBody />
 		</div>
 	)
 }

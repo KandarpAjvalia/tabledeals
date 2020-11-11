@@ -5,7 +5,7 @@ import {
 import { Link } from 'react-router-dom'
 import Login from './Login'
 
-const Header = () => {
+const HomepageHeader = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure()
 
 	return (
@@ -31,4 +31,4 @@ const Header = () => {
 	)
 }
 
-export default Header
+export default HomepageHeader

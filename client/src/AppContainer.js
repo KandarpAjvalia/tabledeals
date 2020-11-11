@@ -5,7 +5,7 @@ import {
 	Switch
 } from 'react-router-dom'
 import Home from './pages/Home'
-import Deals from './Deals/Deals'
+import Deals from './pages/Deals'
 
 const AppContainer = () => (
 	<Router>

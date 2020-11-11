@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 // eslint-disable-next-line react/jsx-props-no-spreading
 export const Container = (props) => <Box width="full" maxWidth="1280px" mx="auto" px={6} {...props} />
 
-const Body = () => (
+const HomepageBody = () => (
 	<Box as="section" pt={40} pb={24}>
 		<Container>
 			<Box maxW="xl" mx="auto" textAlign="center">
@@ -32,4 +32,4 @@ const Body = () => (
 	</Box>
 )
 
-export default Body
+export default HomepageBody
