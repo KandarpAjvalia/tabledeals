@@ -1,10 +1,11 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react'
 import { Box } from '@chakra-ui/core'
 import DealsHeader from '../components/DealsHeader'
 import DealSideBar from '../components/DealsSideBar'
 
 // eslint-disable-next-line react/prop-types
-const PageWrapper = ({ children }) => (
+const PageWrapper = ({ children, ...style }) => (
 	<>
 		<DealsHeader />
 		<Box>
@@ -16,7 +17,7 @@ const PageWrapper = ({ children }) => (
 					minHeight="calc(100vh - 4rem)"
 					p="1rem"
 				>
-					{children}
+					<Box {...style}>{children}</Box>
 				</Box>
 			</Box>
 		</Box>
