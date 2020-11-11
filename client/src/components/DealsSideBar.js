@@ -4,6 +4,7 @@ import {
 } from '@chakra-ui/core'
 import { Link } from 'react-router-dom'
 import DealsFilter from './DealsFilter'
+import AddDeal from './AddDeal'
 
 // eslint-disable-next-line react/prop-types
 const SideBarLink = ({ href, children, icon }) => (
@@ -49,7 +50,7 @@ const DealSideBar = (props) => {
 					<Flex justify="space-between" direction="column" height="calc(100vh - 4rem)" fontSize="sm" p="6">
 						<PageLinks />
 						<DealsFilter />
-						{/* <AddDealModal /> */}
+						<AddDeal />
 					</Flex>
 				</Box>
 			</Box>
