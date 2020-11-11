@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-	useColorMode, Stack, Text, Box, Flex
+	Stack, Text, Box, Flex
 } from '@chakra-ui/core'
 import { Link } from 'react-router-dom'
 import DealsFilter from './DealsFilter'
@@ -30,32 +30,28 @@ const PageLinks = () => (
 	</Stack>
 )
 
-const DealSideBar = (props) => {
-	const { colorMode } = useColorMode()
-
-	return (
-		<Box
-			backgroundColor={colorMode === 'light' ? 'white' : 'gray.800'}
-			position="fixed"
-			left="0"
-			width="100%"
-			height="100%"
-			top="0"
-			right="0"
-			// eslint-disable-next-line react/jsx-props-no-spreading
-			{...props}
-		>
-			<Box top="4rem" position="relative" overflowY="auto" borderRightWidth="1px">
-				<Box>
-					<Flex justify="space-between" direction="column" height="calc(100vh - 4rem)" fontSize="sm" p="6">
-						<PageLinks />
-						<DealsFilter />
-						<AddDeal />
-					</Flex>
-				</Box>
+const DealSideBar = (props) => (
+	<Box
+		backgroundColor="white"
+		position="fixed"
+		left="0"
+		width="100%"
+		height="100%"
+		top="0"
+		right="0"
+		// eslint-disable-next-line react/jsx-props-no-spreading
+		{...props}
+	>
+		<Box top="4rem" position="relative" overflowY="auto" borderRightWidth="1px">
+			<Box>
+				<Flex justify="space-between" direction="column" height="calc(100vh - 4rem)" fontSize="sm" p="6">
+					<PageLinks />
+					<DealsFilter />
+					<AddDeal />
+				</Flex>
 			</Box>
 		</Box>
-	)
-}
+	</Box>
+)
 
 export default DealSideBar

@@ -3,7 +3,8 @@ import {
 	Box, Badge, Text, Flex, Stack, IconButton
 } from '@chakra-ui/core'
 
-const DealCard = () => (
+// eslint-disable-next-line react/prop-types
+const DealCard = ({ title }) => (
 	<Box
 		borderWidth="1px"
 		borderRadius={8}
@@ -40,9 +41,9 @@ const DealCard = () => (
 				</Flex>
 				<Flex align="center" justify="space-between">
 					<Text fontSize="xl" fontWeight="semibold" lineHeight="short">
-						Get free ice cream
+						{title}
 					</Text>
-					<Badge variantColor="grey">7pm - 10pm</Badge>
+					{/* <Badge variantColor="grey">7pm - 10pm</Badge> */}
 				</Flex>
 				<Flex align="center" justify="space-between">
 					<Text color="gray.400">New York, NY</Text>

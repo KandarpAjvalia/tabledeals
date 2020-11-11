@@ -11,7 +11,7 @@ const DealFilter = (props) => (
 				Location
 			</Text>
 			<Select defaultValue="New York, NY" bg="white">
-				<option backgroundColor="#EDF2F7">New York, NY</option>
+				<option>New York, NY</option>
 			</Select>
 		</Box>
 		<Box>
