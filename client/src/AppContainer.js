@@ -1,18 +1,19 @@
 import React from 'react'
 import {
 	BrowserRouter as Router,
-	Route
+	Route,
+	Switch
 } from 'react-router-dom'
-import Home from './Home/Home'
+import Home from './pages/Home'
 import Deals from './Deals/Deals'
 
-const AppContainer = () => {
-	return (
-		<Router>
-			<Route path="/d" component={Home} />
-			<Route path="/" component={Deals} />
-		</Router>
-	)
-}
+const AppContainer = () => (
+	<Router>
+		<Switch>
+			<Route exact path="/" component={Home} />
+			<Route exact path="/deals" component={Deals} />
+		</Switch>
+	</Router>
+)
 
 export default AppContainer

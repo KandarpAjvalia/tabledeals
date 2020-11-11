@@ -4,14 +4,12 @@ import Header from './Header'
 import Body from './Body'
 import Sidebar from './Sidebar'
 
-const Deals = () => {
-	return (
-		<Box>
-			<Header />
-			<Body />
-			<Sidebar />
-		</Box>
-	)
-}
+const Deals = () => (
+	<Box>
+		<Header />
+		<Body />
+		<Sidebar />
+	</Box>
+)
 
 export default Deals
