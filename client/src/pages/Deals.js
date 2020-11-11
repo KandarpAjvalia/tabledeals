@@ -1,28 +1,13 @@
 import React from 'react'
-import { Box } from '@chakra-ui/core'
-import DealsHeader from '../components/DealsHeader'
-import DealSideBar from '../components/DealsSideBar'
+import PageWrapper from './PageWrapper'
 import DealCard from '../components/DealCard'
 
 const Deals = () => (
-	<>
-		<DealsHeader />
-		<Box>
-			<DealSideBar maxWidth="18rem" width="full" />
-			<Box pl={[0, null, '18rem']} mt="4rem">
-				<Box
-					as="section"
-					backgroundColor="gray.100"
-					minHeight="calc(100vh - 4rem)"
-					p="1rem"
-				>
-					<DealCard />
-					<DealCard />
-					<DealCard />
-					<DealCard />
-				</Box>
-			</Box>
-		</Box>
-	</>
+	<PageWrapper width="full" maxWidth="1280px" mx="auto" px={6} py={6}>
+		<DealCard />
+		<DealCard />
+		<DealCard />
+		<DealCard />
+	</PageWrapper>
 )
 export default Deals
