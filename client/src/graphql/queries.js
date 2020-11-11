@@ -5,9 +5,14 @@ export const GET_DEALS_QUERY = gql`
     query getDeals {
 		deal {
 			id
-			restaurant_id
 			title
 			type
+			restaurant {
+				name
+				city
+				state
+			}
+			
 		}
 	}
 `
