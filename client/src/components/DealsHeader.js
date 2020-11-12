@@ -23,7 +23,7 @@ const Header = () => {
 			borderBottomWidth="1px"
 			width="full"
 			height="4rem"
-			bg={colorMode === 'light' ? 'white' : 'gray.700'}
+			bg={colorMode === 'light' ? 'white' : 'gray.800'}
 		>
 			<Box width="full" mx="auto" px={6} pr={[1, 6]} height="100%">
 				<Flex size="100%" p={[0, 6]} pl={[0, 4]} align="center" justify="space-between">

@@ -16,7 +16,7 @@ const PageWrapper = ({ children, ...rest }) => {
 				<Box pl={[0, null, '18rem']} mt="4rem">
 					<Box
 						as="section"
-						bg={colorMode === 'light' ? 'white' : 'gray.700'}
+						bg={colorMode === 'light' ? 'white' : 'gray.800'}
 						minHeight="calc(100vh - 4rem)"
 						p="1rem"
 					>
