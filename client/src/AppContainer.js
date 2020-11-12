@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom'
 import Home from './pages/Home'
 import Deals from './pages/Deals'
+import DetailedDeal from './pages/DetailedDeal'
 import { Context as UserContext } from './context/UserContext'
 
 const AppContainer = () => {
@@ -58,6 +59,7 @@ const AppContainer = () => {
 			<Switch>
 				<Route exact path="/" component={Home} />
 				<Route exact path="/deals" component={Deals} />
+				<Route exact path="/detailed-deal" component={DetailedDeal} />
 			</Switch>
 		</Router>
 	)
