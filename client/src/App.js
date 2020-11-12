@@ -1,12 +1,16 @@
 import React from 'react'
-import { ThemeProvider, theme, CSSReset } from '@chakra-ui/core'
+import {
+	ThemeProvider, theme, ColorModeProvider, CSSReset
+} from '@chakra-ui/core'
 
 import AppContainer from './AppContainer'
 
 const App = () => (
 	<ThemeProvider theme={theme}>
-		<CSSReset />
-		<AppContainer />
+		<ColorModeProvider>
+			<CSSReset />
+			<AppContainer />
+		</ColorModeProvider>
 	</ThemeProvider>
 )
 export default App

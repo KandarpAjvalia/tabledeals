@@ -5,6 +5,7 @@ import {
 import LogoutButton from './LogoutButton'
 import LoginButton from './LoginButton'
 import { Context as UserContext } from '../context/UserContext'
+import ToggleColorButton from './ToggeColorButton'
 
 const Header = () => {
 	const userContext = useContext(UserContext)
@@ -38,6 +39,7 @@ const Header = () => {
 						/>
 					</InputGroup>
 					{userContext.state.isAuthenticated ? <LogoutButton /> : <LoginButton /> }
+					<ToggleColorButton />
 				</Flex>
 			</Box>
 		</Box>
