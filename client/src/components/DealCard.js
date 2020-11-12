@@ -2,10 +2,11 @@ import React from 'react'
 import {
 	Box, Badge, Text, Flex, Stack, IconButton
 } from '@chakra-ui/core'
+import AddVote from './AddVote'
 
 const DealCard = ({
 	// eslint-disable-next-line react/prop-types
-	title, restaurantName, city, state, dealType
+	title, restaurantName, city, state, dealType, dealId
 }) => (
 	<Box
 		borderWidth="1px"
@@ -17,24 +18,8 @@ const DealCard = ({
 	>
 		<Flex>
 			<Stack align="center" ml={2}>
-				<IconButton
-					aria-label="Upvote"
-					icon="chevron-up"
-					size="sm"
-					fontSize="20px"
-					onClick={() => console.log('upvote')}
-					variant="ghost"
-					color="gray.500"
-				/>
-				<Box fontWeight="semibold">7</Box>
-				<IconButton
-					aria-label="Downvote"
-					icon="chevron-down"
-					size="sm"
-					fontSize="20px"
-					onClick={() => console.log('downvote')}
-					variant="ghost"
-					color="gray.500"
+				<AddVote
+					deal_id={dealId}
 				/>
 			</Stack>
 			<Stack ml={3} mt={2} mb={2} w="100%" pr={4}>

@@ -25,3 +25,17 @@ export const GET_RESTAURANTS_QUERY = gql`
 		}
 	}
 `
+
+export const GET_USER_DEAL_QUERY = gql`
+	query getUserDeal(
+		$dealId: uuid!
+		$userId: uuid!
+	) {
+		user_deal(where: {
+			deal_id: {_eq: $dealId}, 
+			user_id: {_eq: $userId}
+		}) {
+			id
+		}
+	}
+`
