@@ -16,3 +16,12 @@ export const GET_DEALS_QUERY = gql`
 		}
 	}
 `
+
+export const GET_RESTAURANTS_QUERY = gql`
+	query getRestaurants {
+		restaurant {
+			id
+			name
+		}
+	}
+`

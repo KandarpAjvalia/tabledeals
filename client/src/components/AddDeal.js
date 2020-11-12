@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-shadow */
-import React, { useState, useRef, useEffect } from 'react'
+import React, {
+	useState, useRef, useEffect, useContext
+} from 'react'
 import { useForm } from 'react-hook-form'
 import {
 	useDisclosure,
@@ -19,22 +21,52 @@ import {
 	Button,
 	RadioGroup,
 	Radio,
-	Flex
 } from '@chakra-ui/core'
+import { useQuery, useMutation } from '@apollo/client'
+import { Auth } from 'aws-amplify'
+import { GET_RESTAURANTS_QUERY } from '../graphql/queries'
+import { CREATE_DEAL_MUTATION } from '../graphql/mutations'
 
 const AddDeal = () => {
 	const initialRef = useRef()
 	const { isOpen, onOpen, onClose } = useDisclosure()
 	const { handleSubmit, register, errors } = useForm()
-	const [dealType, setDealType] = useState('Food')
-	const [daysActive, setDaysActive] = useState(['Monday'])
 
-	const onCreateDeal = ({
-		dealType, daysActive, description, endTime, locationId, startTime
+	const [dealType, setDealType] = useState('Food')
+	const [restaurants, setRestaurants] = useState([])
+	const { data } = useQuery(GET_RESTAURANTS_QUERY)
+	const [createDeal] = useMutation(CREATE_DEAL_MUTATION)
+
+	useEffect(() => {
+		if (data && data.restaurant) {
+			setRestaurants(data.restaurant)
+		}
+	}, [data])
+
+	const onCreateDeal = async ({
+		dealType, title, description, restaurantId
 	}, onClose) => {
-		console.log({
-			dealType, daysActive, description, endTime, locationId, startTime
+		const addDealVariables = {
+			title,
+			description,
+			dealType,
+			restaurantId,
+		}
+
+		const user = await Auth.currentAuthenticatedUser()
+		const idToken = user.signInUserSession.idToken.jwtToken
+
+		console.log(user)
+
+		createDeal({
+			variables: addDealVariables,
+			context: {
+				headers: {
+					Authorization: `Bearer ${idToken}`
+				}
+			}
 		})
+
 		onClose()
 	}
 
@@ -50,11 +82,9 @@ const AddDeal = () => {
 						onSubmit={handleSubmit((data) => onCreateDeal(
 							{
 								dealType,
-								daysActive,
+								title: data.title,
 								description: data.description,
-								endTime: data.endTime,
-								locationId: data.locationId,
-								startTime: data.startTime
+								restaurantId: data.restaurantId,
 							},
 							onClose
 						))}
@@ -75,6 +105,19 @@ const AddDeal = () => {
 									<Radio value="Drink">Drink</Radio>
 								</RadioGroup>
 							</FormControl>
+							<FormControl mt={4} isInvalid={errors.title && errors.title.message}>
+								<FormLabel>Title</FormLabel>
+								<Input
+									name="title"
+									ref={register({
+										required: 'Please enter a title.'
+									})}
+									placeholder="Free Drink with $10 order"
+								/>
+								<FormErrorMessage>
+									{errors.title && errors.title.message}
+								</FormErrorMessage>
+							</FormControl>
 							<FormControl mt={4} isInvalid={errors.description && errors.description.message}>
 								<FormLabel>Description</FormLabel>
 								<Input
@@ -82,63 +125,32 @@ const AddDeal = () => {
 									ref={register({
 										required: 'Please enter a description.'
 									})}
-									placeholder="Free Drink with $10 order"
+									placeholder="Free drink with an order of wings"
 								/>
 								<FormErrorMessage>
 									{errors.description && errors.description.message}
 								</FormErrorMessage>
 							</FormControl>
-							<FormControl mt={4} isInvalid={errors.locationId && errors.locationId.message}>
-								<FormLabel htmlFor="location">Location</FormLabel>
+							<FormControl mt={4} isInvalid={errors.restaurantId && errors.restaurantId.message}>
+								<FormLabel htmlFor="location">Restaurant</FormLabel>
 								<Select
 									ref={register({
 										required: 'Please select a location.'
 									})}
-									name="locationId"
-									id="location"
+									name="restaurantId"
+									id="restaurantId"
 									placeholder="Select a Restaurant"
 								>
-									<option value="NY Tavern">
-										NY Tavern
-									</option>
+									{restaurants && restaurants.map((restaurant) => (
+										<option key={restaurant.id} value={restaurant.id}>
+											{restaurant.name}
+										</option>
+									))}
 								</Select>
 								<FormErrorMessage>
-									{errors.locationId && errors.locationId.message}
+									{errors.restaurantId && errors.restaurantId.message}
 								</FormErrorMessage>
 							</FormControl>
-							<FormControl mt={4} isInvalid={errors.daysActive && errors.daysActive.message}>
-								<FormLabel htmlFor="daysActive">Days Active</FormLabel>
-								{/* <WeekdayButtonGroup daysActive={daysActive} onChange={setDaysActive} /> */}
-								<FormErrorMessage>
-									{errors.daysActive && errors.daysActive.message}
-								</FormErrorMessage>
-							</FormControl>
-							<Flex>
-								<FormControl mt={4} mr={4} isInvalid={errors.startTime && errors.startTime.message}>
-									<FormLabel>Start Time</FormLabel>
-									<Input
-										name="startTime"
-										ref={register({
-											required: 'Please enter a start time.'
-										})}
-										placeholder="7pm"
-									/>
-									<FormErrorMessage>
-										{errors.startTime && errors.startTime.message}
-									</FormErrorMessage>
-								</FormControl>
-								<FormControl mt={4} isInvalid={errors.endTime && errors.endTime.message}>
-									<FormLabel>End Time</FormLabel>
-									<Input
-										name="endTime"
-										ref={register({
-											required: 'Please enter an end time.'
-										})}
-										placeholder="2am"
-									/>
-									<FormErrorMessage>{errors.endTime && errors.endTime.message}</FormErrorMessage>
-								</FormControl>
-							</Flex>
 						</ModalBody>
 
 						<ModalFooter>

@@ -102,7 +102,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-tabledeals-dev-114139-deployment",
-					"S3Key": "amplify-builds/tabledealsPostConfirmation-6a394b6c59565a346944-build.zip"
+					"S3Key": "amplify-builds/tabledealsPostConfirmation-4e6b4b32645339734c57-build.zip"
 				}
 			}
 		},
