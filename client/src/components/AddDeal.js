@@ -56,6 +56,8 @@ const AddDeal = () => {
 		const user = await Auth.currentAuthenticatedUser()
 		const idToken = user.signInUserSession.idToken.jwtToken
 
+		console.log(user)
+
 		createDeal({
 			variables: addDealVariables,
 			context: {
