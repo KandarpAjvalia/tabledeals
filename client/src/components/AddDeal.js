@@ -24,10 +24,13 @@ import {
 } from '@chakra-ui/core'
 import { useQuery, useMutation } from '@apollo/client'
 import { Auth } from 'aws-amplify'
+import { Context as UserContext } from '../context/UserContext'
 import { GET_RESTAURANTS_QUERY } from '../graphql/queries'
 import { CREATE_DEAL_MUTATION } from '../graphql/mutations'
 
 const AddDeal = () => {
+	const userContext = useContext(UserContext)
+
 	const initialRef = useRef()
 	const { isOpen, onOpen, onClose } = useDisclosure()
 	const { handleSubmit, register, errors } = useForm()
@@ -56,8 +59,6 @@ const AddDeal = () => {
 		const user = await Auth.currentAuthenticatedUser()
 		const idToken = user.signInUserSession.idToken.jwtToken
 
-		console.log(user)
-
 		createDeal({
 			variables: addDealVariables,
 			context: {
@@ -72,7 +73,15 @@ const AddDeal = () => {
 
 	return (
 		<>
-			<Button leftIcon="add" onClick={onOpen} variantColor="orange" variant="solid" minH="40px" w="100%">
+			<Button
+				leftIcon="add"
+				isDisabled={!userContext.state.isAuthenticated}
+				onClick={onOpen}
+				variantColor="orange"
+				variant="solid"
+				minH="40px"
+				w="100%"
+			>
 				Add New Deal
 			</Button>
 			<Modal initialFocusRef={initialRef} isOpen={isOpen} onClose={onClose} size="25rem">
