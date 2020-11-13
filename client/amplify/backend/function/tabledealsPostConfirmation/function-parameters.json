@@ -8,10 +8,11 @@
   "functionName": "tabledealsPostConfirmation",
   "resourceName": "tabledealsPostConfirmation",
   "parentStack": "auth",
-  "triggerEnvs": [],
+  "triggerEnvs": "[]",
   "triggerDir": "/Users/kandarpajvalia/.config/yarn/global/node_modules/amplify-category-auth/provider-utils/awscloudformation/utils/../triggers/PostConfirmation",
   "triggerTemplate": "PostConfirmation.json.ejs",
   "roleName": "tabledealsPostConfirmation",
   "skipEdit": true,
-  "GROUP": "user"
+  "GROUP": "user",
+  "triggerEventPath": "PostConfirmation.event.json"
 }

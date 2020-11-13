@@ -7,6 +7,9 @@ import App from './App'
 import { Provider as UserProvider } from './context/UserContext'
 import { createApolloClient } from './graphql/apollo'
 
+config.oauth.redirectSignIn = `${window.location.origin}/`
+config.oauth.redirectSignOut = `${window.location.origin}/`
+
 Amplify.configure(config)
 
 const client = createApolloClient()

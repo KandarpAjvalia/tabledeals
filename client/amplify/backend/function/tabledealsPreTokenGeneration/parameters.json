@@ -1,4 +1,1 @@
-{
-  "modules": "alter-claims",
-  "resourceName": "tabledealsPreTokenGeneration"
-}
+{"modules":"alter-claims"}

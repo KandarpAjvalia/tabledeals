@@ -7,9 +7,10 @@
   "functionName": "tabledealsPreTokenGeneration",
   "resourceName": "tabledealsPreTokenGeneration",
   "parentStack": "auth",
-  "triggerEnvs": [],
+  "triggerEnvs": "[]",
   "triggerDir": "/Users/kandarpajvalia/.config/yarn/global/node_modules/amplify-category-auth/provider-utils/awscloudformation/utils/../triggers/PreTokenGeneration",
   "triggerTemplate": "PreTokenGeneration.json.ejs",
   "roleName": "tabledealsPreTokenGeneration",
-  "skipEdit": true
+  "skipEdit": true,
+  "triggerEventPath": "PreTokenGeneration.event.json"
 }
