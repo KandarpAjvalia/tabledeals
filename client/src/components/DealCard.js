@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-	Box, Badge, Text, Flex, Stack, IconButton, useColorMode
+	Box, Badge, Text, Flex, Stack, useColorMode
 } from '@chakra-ui/core'
 import AddVote from './AddVote'
 
@@ -22,8 +22,8 @@ const DealCard = ({
 			<Flex>
 				<Stack align="center" ml={2}>
 					<AddVote
-            dealId={dealId}
-          />
+						dealId={dealId}
+					/>
 				</Stack>
 				<Stack ml={3} mt={2} mb={2} w="100%" pr={4}>
 					<Flex align="baseline">
