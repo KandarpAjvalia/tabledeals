@@ -44,6 +44,27 @@ export const GET_USER_DEAL_QUERY = gql`
 			}
 		) {
 			id
+			vote
+		}
+	}
+
+`
+
+export const SUM_USER_DEAL_VOTES_QUERY = gql`
+	query sumDealVotes(
+		$dealId: uuid!
+	) {
+	user_deal_aggregate(
+		where: {
+		deal_id: {
+			_eq: $dealId
+		}
+		}) {
+			aggregate {
+				sum {
+					vote
+				}
+			}
 		}
 	}
 

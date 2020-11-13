@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-	Box, Badge, Text, Flex, Stack, IconButton
+	Box, Badge, Text, Flex, Stack
 } from '@chakra-ui/core'
 import AddVote from './AddVote'
 
