@@ -19,7 +19,7 @@ const DealCard = ({
 		<Flex>
 			<Stack align="center" ml={2}>
 				<AddVote
-					deal_id={dealId}
+					dealId={dealId}
 				/>
 			</Stack>
 			<Stack ml={3} mt={2} mb={2} w="100%" pr={4}>
