@@ -22,14 +22,6 @@ export const GET_RESTAURANTS_QUERY = gql`
 		restaurant {
 			id
 			name
-			description
-			image_url
-			street
-			city
-			state
-			zip
-			opening_time
-			closing_time
 		}
 	}
 `
