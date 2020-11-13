@@ -6,6 +6,8 @@ import {
 	Text,
 	Flex,
 	Stack,
+	AspectRatioBox,
+	Image,
 	useColorMode
 }
 	from '@chakra-ui/core'
@@ -76,6 +78,9 @@ const DetailedDealCard = ({
 								</Text>
 							</Flex>
 						</Stack>
+						<AspectRatioBox w="100%" maxWidth="150px" ratio={1}>
+							<Image src={imageUrl} alt={resName} objectFit="cover" />
+						</AspectRatioBox>
 					</Flex>
 					<Stack>
 						<Text color="gray.400">
@@ -89,7 +94,6 @@ const DetailedDealCard = ({
 							{zip}
 						</Text>
 					</Stack>
-
 				</Stack>
 			</Flex>
 		</Box>
