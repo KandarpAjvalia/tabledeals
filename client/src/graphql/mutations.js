@@ -18,19 +18,22 @@ export const CREATE_DEAL_MUTATION = gql`
 		}
 	}
 `
-export const INSERT_USER_DEAL_MUTATION = gql`
-	mutation insert_user_deal(
+export const CREATE_USER_DEAL_MUTATION = gql`
+	mutation createUserDeal(
 		$dealId: uuid!
-		$userDealVote: int!
+		$vote: Int!
 	) {
-		insert_user_deal_one (object: {
-			deal_id: $dealId
-			vote: $userVote
-		}) {
+		insert_user_deal_one(
+			object: {
+			deal_id: $dealId, 
+			vote: $vote
+			}) {
 			id
 		}
 	}
+
 `
+
 export const UPDATE_USER_DEAL_MUTATION = gql`
 	mutation update_user_deal(
 		$dealId: uuid!
