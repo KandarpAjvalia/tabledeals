@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import {
 	Box,
@@ -5,22 +6,23 @@ import {
 	Text,
 	Flex,
 	Stack,
-	IconButton,
 }
 	from '@chakra-ui/core'
+import AddVote from './AddVote'
 
 const DetailedDealCard = ({
+	dealId,
 	title,
 	dealType,
 	resName,
 	description,
-	image_url,
+	imageUrl,
 	street,
 	city,
 	state,
 	zip,
-	opening_time,
-	closing_time
+	openingTime,
+	closingTime
 }) => (
 	<Box
 		borderWidth="1px"
@@ -47,33 +49,17 @@ const DetailedDealCard = ({
 							Open from:
 						</Text>
 						<Text>
-							{opening_time}
+							{openingTime}
 							-
-							{closing_time}
+							{closingTime}
 						</Text>
 					</Stack>
 
 				</Flex>
 				<Flex>
 					<Stack align="center" ml={2}>
-						<IconButton
-							aria-label="Upvote"
-							icon="chevron-up"
-							size="sm"
-							fontSize="20px"
-							onClick={() => console.log('upvote')}
-							variant="ghost"
-							color="gray.500"
-						/>
-						<Box fontWeight="semibold">7</Box>
-						<IconButton
-							aria-label="Downvote"
-							icon="chevron-down"
-							size="sm"
-							fontSize="20px"
-							onClick={() => console.log('downvote')}
-							variant="ghost"
-							color="gray.500"
+						<AddVote
+							dealId={dealId}
 						/>
 					</Stack>
 					<Stack ml={3} mt={2} mb={2} w="100%" pr={4}>
