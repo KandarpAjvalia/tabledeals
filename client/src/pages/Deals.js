@@ -26,6 +26,7 @@ const Deals = () => {
 						restaurantName={name}
 						city={city}
 						state={state}
+						dealId={deal.id}
 					/>
 				)
 			})}
