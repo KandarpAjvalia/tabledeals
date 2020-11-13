@@ -8,7 +8,7 @@ module.exports = {
 		extensions: ['.mjs', '.js']
 	},
 	output: {
-		path: path.join(path.resolve(), '/dist'),
+		path: path.join(path.resolve(), '../server/dist'),
 		filename: 'bundle.js',
 	},
 	module: {
