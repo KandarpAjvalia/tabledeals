@@ -4,7 +4,7 @@
   "private": true,
   "proxy": "http://localhost:4000",
   "scripts": {
-    "dev": "npm run lint & webpack-dev-server --mode development --hot --port 8080 --host 0.0.0.0 --disable-host-check",
+    "dev": "npm run lint & webpack-dev-server --mode development --hot --port 3000 --host 0.0.0.0 --disable-host-check",
     "build": "webpack --mode production",
     "lint": "./node_modules/.bin/eslint --fix ."
   },
@@ -17,8 +17,6 @@
     "emotion-theming": "^10.0.27",
     "graphql": "^15.4.0",
     "react": "^16.13.1",
-    "react-autocomplete": "^1.8.1",
-    "react-autosuggest": "^10.0.3",
     "react-dom": "^16.13.1",
     "react-hook-form": "^6.11.0",
     "react-router-dom": "^5.2.0"
