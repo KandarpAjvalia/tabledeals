@@ -1,16 +1,16 @@
 import React, {
-	useState, useEffect, useContext
+	useContext
 } from 'react'
 import {
 	Box, IconButton
 } from '@chakra-ui/core'
 import { Auth } from 'aws-amplify'
-import { gql, useQuery, useMutation } from '@apollo/client'
+import { useMutation } from '@apollo/client'
 
 import { Context as UserContext } from '../context/UserContext'
 import { createApolloClient } from '../graphql/apollo'
 import { GET_USER_DEAL_QUERY } from '../graphql/queries'
-import { CREATE_USER_DEAL_MUTATION } from '../graphql/mutations'
+import { CREATE_USER_DEAL_MUTATION, UPDATE_USER_DEAL_MUTATION } from '../graphql/mutations'
 
 const client = createApolloClient()
 
@@ -18,6 +18,7 @@ const AddVote = ({ dealId }) => {
 	const userContext = useContext(UserContext)
 
 	const [createUserDeal] = useMutation(CREATE_USER_DEAL_MUTATION)
+	const [updateUserDeal] = useMutation(UPDATE_USER_DEAL_MUTATION)
 
 	const onVote = async (vote) => {
 		const { data } = await client.query({
@@ -29,8 +30,6 @@ const AddVote = ({ dealId }) => {
 			fetchPolicy: 'network-only'
 		})
 
-		console.log(data)
-
 		if (data.user_deal.length) {
 			const userDealPk = data.user_deal[0].id
 			update(userDealPk, vote)
@@ -40,8 +39,6 @@ const AddVote = ({ dealId }) => {
 	}
 
 	const create = async (vote) => {
-		console.log('create')
-
 		const user = await Auth.currentAuthenticatedUser()
 		const idToken = user.signInUserSession.idToken.jwtToken
 
@@ -58,8 +55,21 @@ const AddVote = ({ dealId }) => {
 		})
 	}
 
-	const update = (userDealPk, vote) => {
-		console.log(userDealPk)
+	const update = async (userDealPk, vote) => {
+		const user = await Auth.currentAuthenticatedUser()
+		const idToken = user.signInUserSession.idToken.jwtToken
+
+		updateUserDeal({
+			variables: {
+				userDealPk,
+				vote
+			},
+			context: {
+				headers: {
+					Authorization: `Bearer ${idToken}`
+				}
+			}
+		})
 	}
 
 	return (

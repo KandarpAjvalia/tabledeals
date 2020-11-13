@@ -27,7 +27,8 @@ export const CREATE_USER_DEAL_MUTATION = gql`
 			object: {
 			deal_id: $dealId, 
 			vote: $vote
-			}) {
+			}
+		) {
 			id
 		}
 	}
@@ -35,17 +36,19 @@ export const CREATE_USER_DEAL_MUTATION = gql`
 `
 
 export const UPDATE_USER_DEAL_MUTATION = gql`
-	mutation update_user_deal(
-		$dealId: uuid!
-		$userId: uuid!
-		$userDealVote: int!
+	mutation updateUserDeal(
+		$userDealPk: uuid!, 
+		$vote: Int!
 	) {
-		update_user_deal(
-			where: {
-				deal_id: {eq: $dealId},
-				user_id: {eq: $userId}
-			},
-			_set: {vote: 0}
-		)
+		update_user_deal_by_pk(
+			pk_columns: {
+				id: $userDealPk
+			}, 
+			_set: {
+				vote: $vote
+			}
+		) {
+			id
+		}
 	}
 `
