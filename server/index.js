@@ -6,6 +6,6 @@ app.use(express.static(path.join(__dirname, 'dist')))
 
 const port = process.env.PORT || 4000
 
-app.get('/', (req, res) => res.sendFile(path.resolve('index.html')))
+app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'dist', 'index.html')))
 
 app.listen(port, () => console.log(`server is listening on ${port}`))
