@@ -14,7 +14,6 @@ const Deals = () => {
 			setDeals(data.deal)
 		}
 	}, [data])
-	console.log(data)
 	return (
 		<PageWrapper width="full" maxWidth="1280px" mx="auto" px={6} py={6}>
 			{deals && deals.map((deal) => {
