@@ -27,7 +27,7 @@ npm run dev
 ---
 For more commands, checkout project root's **package.json**
 
-## meet the team!
+## Meet the team!
 
 
 ## 🤝 Contributing
