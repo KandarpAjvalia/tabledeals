@@ -28,6 +28,7 @@ npm run dev
 For more commands, checkout project root's **package.json**
 
 ## Meet the team!
+Mohamed Shalaby: Provided yelp API support, Added Dark mode and light Mode support
 
 
 ## 🤝 Contributing
