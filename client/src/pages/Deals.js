@@ -21,14 +21,14 @@ const Deals = () => {
 				return (
 					<Link to={`/deal/${deal.id}`}>
 						<DealCard
-              key={deal.id}
-              title={deal.title}
-              dealType={deal.type}
-              restaurantName={name}
-              city={city}
-              state={state}
-              dealId={deal.id}
-            />
+							key={deal.id}
+							title={deal.title}
+							dealType={deal.type}
+							restaurantName={name}
+							city={city}
+							state={state}
+							dealId={deal.id}
+						/>
 					</Link>
 				)
 			})}

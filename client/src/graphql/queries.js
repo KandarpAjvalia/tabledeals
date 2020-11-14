@@ -59,13 +59,42 @@ export const SUM_USER_DEAL_VOTES_QUERY = gql`
 		deal_id: {
 			_eq: $dealId
 		}
-		}) {
-			aggregate {
-				sum {
-					vote
-				}
+	}) {
+		aggregate {
+			sum {
+				vote
 			}
+		}
 		}
 	}
 
+`
+export const GET_DEAL_BY_ID_QUERY = gql`
+	query findDeal(
+		$id: uuid!
+		) {
+			deal(
+				where : {
+					id: { 
+						_eq: $id 
+					} 
+				}
+		) {
+			id
+			title
+			type
+			restaurant {
+				id
+				name
+				description
+				image_url
+				street
+				city
+				state
+				zip
+				opening_time
+				closing_time
+			}
+		}
+	}
 `
