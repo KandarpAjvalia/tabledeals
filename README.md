@@ -29,18 +29,9 @@ For more commands, checkout project root's **package.json**
 
 ## Meet the team!
 ● Kandarp Ajvalia 
-○ Email: kja35@njit.edu 
-○ Github: github.com/KandarpAjvalia 
 ● Gerry Agbay 
-○ Email: gda6@njit.edu 
-○ Github: https://github.com/GerryAgbay 
 ● Mohamed Shalaby 
-○ Email: ms766@njit.edu 
-○ Github: https://github.com/ms766 
 ● Benjamin Robinson 
-○ Email: bgr9@njit.edu 
-○ Github: https://github.com/benjam9 
-
 
 ## 🤝 Contributing
 
