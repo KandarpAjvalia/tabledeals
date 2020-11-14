@@ -28,10 +28,10 @@ npm run dev
 For more commands, checkout project root's **package.json**
 
 ## Meet the team!
-<h3>Kandarp Ajvalia</h3? 
-<h3>Gerry Agbay</h3> 
-<h3>Mohamed Shalaby</h3><p>Provide Yelp api Support, Visual design support, Dark/light mode support</p>
-<h3>Benjamin Robinson</h3> 
+<h4><u>Kandarp Ajvalia</u></h4> 
+<h4>Gerry Agbay</h4> 
+<h4>Mohamed Shalaby</h4><p>Provide Yelp api Support, Visual design support, Dark/light mode support</p>
+<h4>Benjamin Robinson</h4> 
 
 ## 🤝 Contributing
 
