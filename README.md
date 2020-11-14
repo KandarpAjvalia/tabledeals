@@ -29,8 +29,10 @@ For more commands, checkout project root's **package.json**
 
 ## Meet the team!
 <h5>Kandarp Ajvalia</h5> 
-<h5>Gerry Agbay</h5> 
-<h5><u>Mohamed Shalaby</u></h5><p>Provide Yelp api Support, Visual design support, Dark-light mode support</p>
+<h5>Gerry Agbay</h5><p>·       Plan database design with Kandarp.
+·       Set up database in Hasura – create tables, fields, and relationships.
+·       Create rating deals functionality via upvote or downvote.</p>
+<h5>Mohamed Shalaby</h5><p>Provide Yelp api Support, Visual design support, Dark-light mode support</p>
 <h5>Benjamin Robinson</h5> 
 
 ## 🤝 Contributing
