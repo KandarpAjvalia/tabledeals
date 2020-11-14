@@ -30,6 +30,10 @@ For more commands, checkout project root's **package.json**
 ## Meet the team!
 <h5>Kandarp Ajvalia</h5>
 <ul>
+  <li> Set up boiler plate for the app </li>
+  <li> Incorporate aws amplify </li>
+  <li> Set up OAuth login and logout (conditional render permissions) </li>
+  <li> Provide technical support for team members - React, Hasura GraphQL, Chakra UI</li>
 </ul>
 
 <h5>Gerry Agbay</h5>
