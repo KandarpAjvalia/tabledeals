@@ -28,9 +28,9 @@ npm run dev
 For more commands, checkout project root's **package.json**
 
 ## Meet the team!
-<h4><u>Kandarp Ajvalia</u></h4> 
+<h4>Kandarp Ajvalia</h4> 
 <h4>Gerry Agbay</h4> 
-<h4>Mohamed Shalaby</h4><p>Provide Yelp api Support, Visual design support, Dark/light mode support</p>
+<h4>Mohamed Shalaby</h4><p><u>Provide Yelp api Support, Visual design support, Dark/light mode support</u></p>
 <h4>Benjamin Robinson</h4> 
 
 ## 🤝 Contributing
