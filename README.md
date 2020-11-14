@@ -30,7 +30,6 @@ For more commands, checkout project root's **package.json**
 ## Meet the team!
 <h5>Kandarp Ajvalia</h5>
 <ul>
-  <li> EVERYTHING </li>
 </ul>
 
 <h5>Gerry Agbay</h5>
@@ -42,8 +41,8 @@ For more commands, checkout project root's **package.json**
   
 <h5>Mohamed Shalaby</h5>
 <ul>
-  <li> Provide Yelp Api Support </li>
-  <li> Provide UI and visual design support with team </li>
+  <li> Provide Yelp api Support </li>
+  <li> provide UI and visual design support with team </li>
   <li> Dark-light mode support </li>
 </ul>
 
@@ -51,6 +50,8 @@ For more commands, checkout project root's **package.json**
 <ul>
   <li> Set up UI using Chakra UI </li>
   <li> Initial set up of landing page </li>
+  <li> Create detailed deals page </li>
+  <li> Base styling for app pages </li>
 </ul>
 
 ## 🤝 Contributing
