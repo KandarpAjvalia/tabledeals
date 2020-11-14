@@ -27,6 +27,9 @@ npm run dev
 ---
 For more commands, checkout project root's **package.json**
 
+## meet the team!
+
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/KandarpAjvalia/tabledeals/issues). 
