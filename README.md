@@ -29,6 +29,7 @@ For more commands, checkout project root's **package.json**
 
 ## Meet the team!
 <h5>Kandarp Ajvalia</h5> 
+
 <h5>Gerry Agbay</h5>
 <ul>
   <li> Plan database design with Kandarp </li>
@@ -37,9 +38,11 @@ For more commands, checkout project root's **package.json**
 </ul>
   
 <h5>Mohamed Shalaby</h5>
-* Provide Yelp api Support
-* provide UI and visual design support with team
-* Dark-light mode support
+<ul>
+  <li> Provide Yelp api Support </li>
+  <li> provide UI and visual design support with team </li>
+  <li> Dark-light mode support </li>
+</ul>
 
 <h5>Benjamin Robinson</h5> 
 
