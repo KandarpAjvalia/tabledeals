@@ -8,7 +8,7 @@
 
 > A web app to find restaurant/bar deals.
 
-### 🏠 [Homepage](https://tabledeals-mvp.herokuapp.com)
+### 💻 [Homepage](https://tabledeals-mvp.herokuapp.com)
 
 <img width="500" alt="homePage" src="https://user-images.githubusercontent.com/22509838/99138081-205ec480-25fc-11eb-93f4-619be2fa0e94.png">
 <img width="500" alt="dealsPage" src="https://user-images.githubusercontent.com/22509838/99138082-2359b500-25fc-11eb-820c-735e9139c80e.png">
