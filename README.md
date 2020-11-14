@@ -46,7 +46,7 @@ For more commands, checkout project root's **package.json**
 <h5>Mohamed Shalaby</h5>
 <ul>
   <li> Provide Yelp api Support </li>
-  <li> provide UI and visual design support with team </li>
+  <li> Provide UI and visual design support with team </li>
   <li> Dark-light mode support </li>
 </ul>
 
