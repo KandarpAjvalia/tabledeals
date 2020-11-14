@@ -1,4 +1,4 @@
-<h1 https://tabledeals-mvp.herokuapp.com> </h1>
+<h1> https://tabledeals-mvp.herokuapp.com</h1>
 
 <h1 align="center">Welcome to tabledeals 👋</h1>
 <p>
