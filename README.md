@@ -30,7 +30,7 @@ For more commands, checkout project root's **package.json**
 ## Meet the team!
 ● Kandarp Ajvalia 
 ● Gerry Agbay 
-● Mohamed Shalaby 
+<h2>Mohamed Shalaby</h2><p>Provide Yelp api Support, Visual design support, Dark/light mode support</p>
 ● Benjamin Robinson 
 
 ## 🤝 Contributing
