@@ -39,6 +39,10 @@ For more commands, checkout project root's **package.json**
     <li> Developed Add Deal feature </li>
     <li> Provide technical support for team members - React, Hasura GraphQL, Chakra UI </li>
   </ul>
+  <h6>Pending</h6>
+  <ul>
+    <li> Set up restaurant page (button exists but page is empty) </li>
+  </ul>
   
 <h4>Gerry Agbay</h4>
   <h6>Completed</h6>
