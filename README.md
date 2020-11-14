@@ -52,6 +52,10 @@ For more commands, checkout project root's **package.json**
     <li> Create rating deals functionality via upvote or downvote </li>
     <li> Work on the Readme </li>
   </ul>
+  <h6>Pending</h6>
+  <ul>
+    <li> Fix voting inconsistency (increments incorrectly sometimes) </li>
+  </ul>
   
 <h4>Mohamed Shalaby</h4>
   <h6>Completed</h6>
