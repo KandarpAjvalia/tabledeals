@@ -1,3 +1,5 @@
+<h1> https://tabledeals-mvp.herokuapp.com</h1>
+
 <h1 align="center">Welcome to tabledeals 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000" />
@@ -26,6 +28,55 @@ npm run dev
 
 ---
 For more commands, checkout project root's **package.json**
+
+## Meet the team!
+<h4>Kandarp Ajvalia</h4>
+  <h6>Completed</h6>
+  <ul>
+    <li> Set up boiler plate for the app </li>
+    <li> Incorporate aws amplify </li>
+    <li> Set up OAuth login and logout (conditional render permissions) </li>
+    <li> Plan Database Design with Gerry </li>
+    <li> Setup React Context for global state for the app </li>
+    <li> Developed Add Deal feature </li>
+    <li> Provide technical support for team members - React, Hasura GraphQL, Chakra UI </li>
+  </ul>
+  
+<h4>Gerry Agbay</h4>
+  <h6>Completed</h6>
+  <ul>
+    <li> Plan database design with Kandarp </li>
+    <li> Set up database in Hasura – create tables, fields, and relationships </li>
+    <li> Create rating deals functionality via upvote or downvote </li>
+    <li> Work on the Readme </li>
+  </ul>
+  
+<h4>Mohamed Shalaby</h4>
+  <h6>Completed</h6>
+  <ul>
+    <li> Provide Yelp api Support </li>
+    <li> provide UI and visual design support with team </li>
+    <li> Dark-light mode support </li>
+    <li> Work on the Readme </li>
+  </ul>
+  <h6>Pending</h6>
+  <ul>
+    <li> Filter deals according to food or drink </li>
+  </ul>
+
+<h4>Benjamin Robinson</h4>
+  <h6>Completed</h6>
+  <ul>
+    <li> Set up UI using Chakra UI </li>
+    <li> Initial set up of landing page </li>
+    <li> Create detailed deals page </li>
+    <li> Base styling for app pages </li>
+  </ul>
+  <h6>Pending</h6>
+  <ul>
+    <li> Landing page in progress </li>
+    <li> Search bar for the deals page </li>
+  </ul>
 
 ## 🤝 Contributing
 
