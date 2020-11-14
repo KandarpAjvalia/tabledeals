@@ -28,7 +28,7 @@ npm run dev
 For more commands, checkout project root's **package.json**
 
 ## Meet the team!
-<h5>Kandarp Ajvalia</h5>
+<h4>Kandarp Ajvalia</h4>
   <h6>Completed</h6>
   <ul>
     <li> Set up boiler plate for the app </li>
@@ -40,7 +40,7 @@ For more commands, checkout project root's **package.json**
     <li> Provide technical support for team members - React, Hasura GraphQL, Chakra UI </li>
   </ul>
   
-<h5>Gerry Agbay</h5>
+<h4>Gerry Agbay</h4>
   <h6>Completed</h6>
   <ul>
     <li> Plan database design with Kandarp </li>
@@ -49,7 +49,7 @@ For more commands, checkout project root's **package.json**
     <li> Work on the Readme </li>
   </ul>
   
-<h5>Mohamed Shalaby</h5>
+<h4>Mohamed Shalaby</h4>
   <h6>Completed</h6>
   <ul>
     <li> Provide Yelp api Support </li>
@@ -62,7 +62,7 @@ For more commands, checkout project root's **package.json**
     <li> Filter deals according to food or drink </li>
   </ul>
 
-<h5>Benjamin Robinson</h5>
+<h4>Benjamin Robinson</h4>
   <h6>Completed</h6>
   <ul>
     <li> Set up UI using Chakra UI </li>
