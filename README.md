@@ -28,7 +28,10 @@ npm run dev
 For more commands, checkout project root's **package.json**
 
 ## Meet the team!
-<h5>Kandarp Ajvalia</h5> 
+<h5>Kandarp Ajvalia</h5>
+<ul>
+  <li> EVERYTHING </li>
+</ul>
 
 <h5>Gerry Agbay</h5>
 <ul>
@@ -44,7 +47,11 @@ For more commands, checkout project root's **package.json**
   <li> Dark-light mode support </li>
 </ul>
 
-<h5>Benjamin Robinson</h5> 
+<h5>Benjamin Robinson</h5>
+<ul>
+  <li> Set up UI using Chakra UI </li>
+  <li> Initial set up of landing page </li>
+</ul>
 
 ## 🤝 Contributing
 
