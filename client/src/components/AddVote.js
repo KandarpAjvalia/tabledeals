@@ -55,8 +55,9 @@ const AddVote = ({ dealId }) => {
 		if (vote === currentVote) {
 			voteUpdate = 0
 		}
-		setCurrentVote(voteUpdate)
+		const cacheUpdateSum = voteSum - currentVote + voteUpdate
 
+		setCurrentVote(voteUpdate)
 		const upsertDealVariables = {
 			id: userId + dealId,
 			dealId,
@@ -64,6 +65,7 @@ const AddVote = ({ dealId }) => {
 		}
 
 		const user = await Auth.currentAuthenticatedUser()
+
 		const { jwtToken } = user.signInUserSession.idToken
 		upsertUserDeal({
 			variables: upsertDealVariables,
@@ -72,9 +74,30 @@ const AddVote = ({ dealId }) => {
 					Authorization: `Bearer ${jwtToken}`
 				}
 			},
-			update: (cache, { data }) => {
-				console.log(cache)
-				console.log(data)
+			update: (cache) => {
+				const cachedData = cache.readQuery({
+					query: SUM_USER_DEAL_VOTES_QUERY,
+					variables: {
+						dealId
+					}
+				})
+				cache.writeQuery({
+					query: SUM_USER_DEAL_VOTES_QUERY,
+					variables: {
+						dealId
+					},
+					data: {
+						...cachedData,
+						user_deal_aggregate: {
+							aggregate: {
+								sum: {
+									vote: cacheUpdateSum
+								}
+							}
+						}
+					}
+				})
+				setVoteSum(cacheUpdateSum)
 			}
 		})
 	}
