@@ -1,25 +1,54 @@
 import React, {
 	useContext,
+	useEffect,
 	useState,
 } from 'react'
 import {
 	Box, IconButton
 } from '@chakra-ui/core'
 import { Auth } from 'aws-amplify'
-import { useMutation } from '@apollo/client'
+import { useMutation, useQuery } from '@apollo/client'
 import { Context as UserContext } from '../context/UserContext'
-import { GET_USER_DEAL_QUERY } from '../graphql/queries'
+import { GET_USER_DEAL_QUERY, SUM_USER_DEAL_VOTES_QUERY } from '../graphql/queries'
 import { UPSERT_USER_DEAL_MUTATION } from '../graphql/mutations'
 
 // eslint-disable-next-line react/prop-types
 const AddVote = ({ dealId }) => {
 	const userContext = useContext(UserContext)
-
-	const [currentVote, setCurrentVote] = useState(0)
-
+	const userId = userContext.state.user && userContext.state.user.sub
 	const { isAuthenticated } = userContext.state
 
+	const [currentVote, setCurrentVote] = useState(0)
+	const [voteSum, setVoteSum] = useState(0)
+
+	const gqlDealVotesSum = useQuery(SUM_USER_DEAL_VOTES_QUERY, {
+		variables: {
+			dealId
+		}
+	})
+	const gqlUserDealExists = useQuery(GET_USER_DEAL_QUERY, {
+		variables: {
+			dealId,
+			userId
+		}
+	})
+
 	const [upsertUserDeal] = useMutation(UPSERT_USER_DEAL_MUTATION)
+
+	useEffect(() => {
+		if (gqlDealVotesSum.data) {
+			const { vote } = gqlDealVotesSum.data.user_deal_aggregate.aggregate.sum
+			if (vote) {
+				setVoteSum(vote)
+			}
+		}
+
+		if (gqlUserDealExists.data) {
+			if (gqlUserDealExists.data.user_deal.length) {
+				setCurrentVote(gqlUserDealExists.data.user_deal[0].vote)
+			}
+		}
+	}, [gqlDealVotesSum.data, gqlUserDealExists.data])
 
 	const onVote = async (vote) => {
 		let voteUpdate = vote
@@ -27,7 +56,6 @@ const AddVote = ({ dealId }) => {
 			voteUpdate = 0
 		}
 		setCurrentVote(voteUpdate)
-		const userId = userContext.state.user.sub
 
 		const upsertDealVariables = {
 			id: userId + dealId,
@@ -43,6 +71,10 @@ const AddVote = ({ dealId }) => {
 				headers: {
 					Authorization: `Bearer ${jwtToken}`
 				}
+			},
+			update: (cache, { data }) => {
+				console.log(cache)
+				console.log(data)
 			}
 		})
 	}
@@ -60,7 +92,7 @@ const AddVote = ({ dealId }) => {
 				_disabled={{ opacity: 1 }}
 				color={currentVote === 1 ? 'orange.500' : 'gray.500'}
 			/>
-			<Box fontWeight="semibold">1</Box>
+			<Box fontWeight="semibold">{voteSum}</Box>
 			<IconButton
 				aria-label="Downvote"
 				icon="chevron-down"
@@ -77,4 +109,3 @@ const AddVote = ({ dealId }) => {
 }
 
 export default AddVote
-export { GET_USER_DEAL_QUERY }
