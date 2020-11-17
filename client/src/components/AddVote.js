@@ -22,13 +22,17 @@ const AddVote = ({ dealId }) => {
 	const [upsertUserDeal] = useMutation(UPSERT_USER_DEAL_MUTATION)
 
 	const onVote = async (vote) => {
-		setCurrentVote(vote)
+		let voteUpdate = vote
+		if (vote === currentVote) {
+			voteUpdate = 0
+		}
+		setCurrentVote(voteUpdate)
 		const userId = userContext.state.user.sub
 
 		const upsertDealVariables = {
 			id: userId + dealId,
 			dealId,
-			vote
+			vote: voteUpdate
 		}
 
 		const user = await Auth.currentAuthenticatedUser()
@@ -52,7 +56,7 @@ const AddVote = ({ dealId }) => {
 				fontSize="20px"
 				onClick={() => onVote(1)}
 				variant="ghost"
-				disabled={currentVote === 1 || !isAuthenticated}
+				disabled={!isAuthenticated}
 				_disabled={{ opacity: 1 }}
 				color={currentVote === 1 ? 'orange.500' : 'gray.500'}
 			/>
@@ -64,7 +68,7 @@ const AddVote = ({ dealId }) => {
 				fontSize="20px"
 				onClick={() => onVote(-1)}
 				variant="ghost"
-				disabled={currentVote === -1 || !isAuthenticated}
+				disabled={!isAuthenticated}
 				_disabled={{ opacity: 1 }}
 				color={currentVote === -1 ? 'orange.500' : 'gray.500'}
 			/>
