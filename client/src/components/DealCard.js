@@ -2,6 +2,7 @@ import React from 'react'
 import {
 	Box, Badge, Text, Flex, Stack, useColorMode
 } from '@chakra-ui/core'
+import { Link } from 'react-router-dom'
 import AddVote from './AddVote'
 
 const DealCard = ({
@@ -30,9 +31,11 @@ const DealCard = ({
 						<Badge variantColor="orange">{dealType}</Badge>
 					</Flex>
 					<Flex align="center" justify="space-between">
-						<Text fontSize="xl" fontWeight="semibold" lineHeight="short">
-							{title}
-						</Text>
+						<Link to={`/deal/${dealId}`}>
+							<Text fontSize="xl" fontWeight="semibold" lineHeight="short">
+								{title}
+							</Text>
+						</Link>
 					</Flex>
 					<Flex align="center" justify="space-between">
 						<Text color="gray.400">

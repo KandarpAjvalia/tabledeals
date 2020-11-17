@@ -18,37 +18,23 @@ export const CREATE_DEAL_MUTATION = gql`
 		}
 	}
 `
-export const CREATE_USER_DEAL_MUTATION = gql`
-	mutation createUserDeal(
+export const UPSERT_USER_DEAL_MUTATION = gql`
+	mutation upsertUserDeal(
+		$id: String!
 		$dealId: uuid!
 		$vote: Int!
 	) {
 		insert_user_deal_one(
 			object: {
-			deal_id: $dealId, 
-			vote: $vote
-			}
-		) {
-			id
-		}
-	}
-
-`
-
-export const UPDATE_USER_DEAL_MUTATION = gql`
-	mutation updateUserDeal(
-		$userDealPk: uuid!, 
-		$vote: Int!
-	) {
-		update_user_deal_by_pk(
-			pk_columns: {
-				id: $userDealPk
-			}, 
-			_set: {
+				id: $id, 
+				deal_id: $dealId,
 				vote: $vote
-			}
-		) {
-			id
+			}, 
+			on_conflict: {
+				constraint: user_deal_id_key, update_columns: vote
+			}) {
+				vote
+				id
 		}
 	}
 `

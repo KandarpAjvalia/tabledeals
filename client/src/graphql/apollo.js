@@ -4,7 +4,7 @@ import {
 
 const createApolloClient = () => new ApolloClient({
 	link: new HttpLink({
-		uri: 'https://tabledeals.herokuapp.com/v1/graphql'
+		uri: 'https://tabledeals-sprint2-hasura.herokuapp.com/v1/graphql'
 	}),
 	cache: new InMemoryCache(),
 })
