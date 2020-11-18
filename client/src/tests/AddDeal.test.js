@@ -1,5 +1,7 @@
 import React from 'react'
-import { cleanup, render, fireEvent } from '@testing-library/react'
+import {
+	cleanup, render, fireEvent, waitFor
+} from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import { MockedProvider } from '@apollo/client/testing'
 import 'babel-polyfill'
@@ -45,7 +47,7 @@ it('AddDeal renders with restaurant list', async () => {
 			</UserContext.Provider>
 		</ThemeProvider>
 	)
-	await new Promise((resolve) => setTimeout(resolve, 0))
+	await waitFor(() => new Promise((resolve) => setTimeout(resolve, 0)))
 	const addDealButton = getByTestId('addDeal')
 
 	expect(addDealButton).not.toHaveFocus()
