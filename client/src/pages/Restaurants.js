@@ -1,6 +1,9 @@
 import React from 'react'
+import RestaurantsHeader from '../components/RestaurantsHeader'
 
 const Restaurants = () => (
-	<h1>This is the Restaurants Page</h1>
+	<>
+		<RestaurantsHeader />
+	</>
 )
 export default Restaurants
