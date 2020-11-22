@@ -98,3 +98,19 @@ export const GET_DEAL_BY_ID_QUERY = gql`
 		}
 	}
 `
+export const GET_RESTAURANTS_ALL_INFO_QUERY = gql`
+	query getRestaurantsAllInfo {
+		restaurant {
+			id
+			name
+			description
+			image_url
+			street
+			city
+			state
+			zip
+			opening_time
+			closing_time
+  		}
+	}
+`
