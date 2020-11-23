@@ -5,6 +5,9 @@ import {
 
 const DealFilter = (props) => {
 	const { colorMode } = useColorMode()
+	const [checkedItems, setCheckedItems] = React.useState([false, false])
+	const allChecked = checkedItems.every(Boolean)
+	const isIndeterminate = checkedItems.some(Boolean) && !allChecked
 
 	return (
 		// eslint-disable-next-line react/jsx-props-no-spreading
@@ -14,10 +17,10 @@ const DealFilter = (props) => {
 					Location
 				</Text>
 				<Select
-					defaultValue="Newark, NJ"
+					defaultValue="New York, NY"
 					bg={colorMode === 'light' ? 'white' : 'gray.700'}
 				>
-					<option>Newark, NJ</option>
+					<option>New York, NY</option>
 				</Select>
 			</Box>
 			<Box>
@@ -29,8 +32,28 @@ const DealFilter = (props) => {
 					variantColor="orange"
 					value="Food"
 				>
-					<Checkbox value="Drink">Drink</Checkbox>
-					<Checkbox value="Food">Food</Checkbox>
+					<Checkbox
+						defaultIsChecked
+						isChecked={allChecked}
+						isIndeterminate={isIndeterminate}
+						onChange={(e) => setCheckedItems([e.target.checked, e.target.checked])}
+					>
+						FOOD & DRINK
+					</Checkbox>
+					<Checkbox
+						defaultIsChecked
+						isChecked={checkedItems[0]}
+						onChange={(e) => setCheckedItems([e.target.checked, checkedItems[1]])}
+					>
+						FOOD
+					</Checkbox>
+					<Checkbox
+						defaultIsChecked
+						isChecked={checkedItems[0]}
+						onChange={(e) => setCheckedItems([e.target.checked, checkedItems[1]])}
+					>
+						DRINK
+					</Checkbox>
 				</CheckboxGroup>
 			</Box>
 		</Stack>

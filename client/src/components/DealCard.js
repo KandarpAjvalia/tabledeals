@@ -1,13 +1,11 @@
 import React from 'react'
 import {
-	Box, Badge, Text, Flex, Stack, useColorMode
+	Box, Badge, Text, Flex, Stack, IconButton, useColorMode
 } from '@chakra-ui/core'
-import { Link } from 'react-router-dom'
-import AddVote from './AddVote'
 
 const DealCard = ({
 	// eslint-disable-next-line react/prop-types
-	title, restaurantName, city, state, dealType, dealId
+	title, restaurantName, city, state, dealType
 }) => {
 	const { colorMode } = useColorMode()
 
@@ -22,8 +20,24 @@ const DealCard = ({
 		>
 			<Flex>
 				<Stack align="center" ml={2}>
-					<AddVote
-						dealId={dealId}
+					<IconButton
+						aria-label="Upvote"
+						icon="chevron-up"
+						size="sm"
+						fontSize="20px"
+						onClick={() => console.log('upvote')}
+						variant="ghost"
+						color="gray.500"
+					/>
+					<Box fontWeight="semibold">7</Box>
+					<IconButton
+						aria-label="Downvote"
+						icon="chevron-down"
+						size="sm"
+						fontSize="20px"
+						onClick={() => console.log('downvote')}
+						variant="ghost"
+						color="gray.500"
 					/>
 				</Stack>
 				<Stack ml={3} mt={2} mb={2} w="100%" pr={4}>
@@ -31,11 +45,10 @@ const DealCard = ({
 						<Badge variantColor="orange">{dealType}</Badge>
 					</Flex>
 					<Flex align="center" justify="space-between">
-						<Link to={`/deal/${dealId}`}>
-							<Text fontSize="xl" fontWeight="semibold" lineHeight="short">
-								{title}
-							</Text>
-						</Link>
+						<Text fontSize="xl" fontWeight="semibold" lineHeight="short">
+							{title}
+						</Text>
+						{/* <Badge variantColor="grey">7pm - 10pm</Badge> */}
 					</Flex>
 					<Flex align="center" justify="space-between">
 						<Text color="gray.400">

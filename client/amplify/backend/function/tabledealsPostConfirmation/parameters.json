@@ -1,1 +1,4 @@
-{"modules":"add-to-group,custom"}
+{
+  "modules": "add-to-group,custom",
+  "resourceName": "tabledealsPostConfirmation"
+}

@@ -7,8 +7,6 @@ import {
 } from 'react-router-dom'
 import Home from './pages/Home'
 import Deals from './pages/Deals'
-import Restaurants from './pages/Restaurants'
-import DealInfo from './pages/DealInfo'
 import { Context as UserContext } from './context/UserContext'
 
 const AppContainer = () => {
@@ -60,16 +58,6 @@ const AppContainer = () => {
 			<Switch>
 				<Route exact path="/" component={Home} />
 				<Route exact path="/deals" component={Deals} />
-				<Route exact path="/restaurants" component={Restaurants} />
-				<Route
-					exact
-					path="/deal/:id"
-					component={({ match }) => (
-						<DealInfo
-							id={match.params.id}
-						/>
-					)}
-				/>
 			</Switch>
 		</Router>
 	)

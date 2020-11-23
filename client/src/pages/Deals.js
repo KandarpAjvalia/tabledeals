@@ -13,6 +13,7 @@ const Deals = () => {
 			setDeals(data.deal)
 		}
 	}, [data])
+
 	return (
 		<PageWrapper width="full" maxWidth="1280px" mx="auto" px={6} py={6}>
 			{deals && deals.map((deal) => {
@@ -25,7 +26,6 @@ const Deals = () => {
 						restaurantName={name}
 						city={city}
 						state={state}
-						dealId={deal.id}
 					/>
 				)
 			})}
