@@ -18,7 +18,7 @@ const Deals = () => {
 		}
 	}, [data])
 
-	const handleDealSearch = e => {
+	const handleDealSearch = (e) => {
 		const searchTerm = e.target.value
 		setDealSearch(searchTerm)
 		if (searchTerm === '') {

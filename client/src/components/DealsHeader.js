@@ -7,6 +7,7 @@ import LoginButton from './LoginButton'
 import { Context as UserContext } from '../context/UserContext'
 import ToggleColorButton from './ToggeColorButton'
 
+// eslint-disable-next-line react/prop-types
 const Header = ({ dealSearch, handleDealSearch }) => {
 	const userContext = useContext(UserContext)
 
