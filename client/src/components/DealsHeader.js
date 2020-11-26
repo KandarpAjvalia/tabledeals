@@ -7,7 +7,8 @@ import LoginButton from './LoginButton'
 import { Context as UserContext } from '../context/UserContext'
 import ToggleColorButton from './ToggeColorButton'
 
-const Header = () => {
+// eslint-disable-next-line react/prop-types
+const Header = ({ dealSearch, handleDealSearch }) => {
 	const userContext = useContext(UserContext)
 
 	const { colorMode } = useColorMode()
@@ -36,6 +37,8 @@ const Header = () => {
 						</InputLeftElement>
 						<Input
 							type="text"
+							value={dealSearch}
+							onChange={handleDealSearch}
 							placeholder="Search for deals"
 							bg={colorMode === 'light' ? 'gray.100' : 'gray.700'}
 						/>
