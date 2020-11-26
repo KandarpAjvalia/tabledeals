@@ -115,7 +115,12 @@ const AddVote = ({ dealId }) => {
 				_disabled={{ opacity: 1 }}
 				color={currentVote === 1 ? 'orange.500' : 'gray.500'}
 			/>
-			<Box fontWeight="semibold">{voteSum}</Box>
+			<Box
+				fontWeight="semibold"
+				data-testid="dealVoteSum"
+			>
+				{voteSum}
+			</Box>
 			<IconButton
 				aria-label="Downvote"
 				icon="chevron-down"

@@ -81,6 +81,7 @@ const AddDeal = () => {
 				variant="solid"
 				minH="40px"
 				w="100%"
+				data-testid="addDeal"
 			>
 				Add New Deal
 			</Button>
@@ -149,6 +150,7 @@ const AddDeal = () => {
 									name="restaurantId"
 									id="restaurantId"
 									placeholder="Select a Restaurant"
+									data-testid="selectRestaurant"
 								>
 									{restaurants && restaurants.map((restaurant) => (
 										<option key={restaurant.id} value={restaurant.id}>
