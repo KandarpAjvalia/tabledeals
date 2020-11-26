@@ -7,7 +7,7 @@
     "dev": "npm run lint & webpack-dev-server --mode development --hot --port 3000 --host 0.0.0.0 --disable-host-check",
     "build": "webpack --mode production",
     "lint": "./node_modules/.bin/eslint --fix .",
-    "test": "jest"
+    "test": "npm install && jest"
   },
   "dependencies": {
     "@apollo/client": "^3.2.5",
