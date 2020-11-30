@@ -26,7 +26,7 @@ const RestaurantCard = ({
 				</Badge>
 				<Box>
 					<Text> </Text>
-					<Text fontSize="s" fontWeight="normal" lineHeight="short" color="gray.700">
+					<Text fontSize="s" fontWeight="normal" lineHeight="short" color="gray.500">
 						Open:
 						{' '}
 						{openingTime}
@@ -35,7 +35,7 @@ const RestaurantCard = ({
 					</Text>
 				</Box>
 				<Box>
-					<Text color="gray.600">
+					<Text color="gray.500">
 						{street}
 						{' '}
 						{city}
