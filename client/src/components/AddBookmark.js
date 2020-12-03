@@ -17,7 +17,7 @@ const AddBookmark = ({ dealId }) => {
 	const gqlUserDealExists = useQuery(GET_USER_DEAL_BOOKMARK_QUERY, {
 		variables: {
 			dealId,
-			userId
+			userId,
 		}
 	})
 

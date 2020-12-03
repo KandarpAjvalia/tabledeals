@@ -72,6 +72,36 @@ export const GET_USER_DEAL_BOOKMARK_QUERY = gql`
 	}
 `
 
+export const GET_BOOKMARKED_USER_DEALS_QUERY = gql`
+	query getBookmarkedDeals (
+		$userId: uuid!
+	) {
+	deal(
+		where: {
+			user_deals: {
+				_and: {
+					isBookmarked: {
+						_eq: True
+					}, 
+					user_id: {
+						_eq: $userId
+					}
+				}
+			}
+		}
+	) {
+		id
+		title
+		type
+		restaurant {
+			name
+			city
+			state
+		}
+  	}
+	}
+`
+
 export const SUM_USER_DEAL_VOTES_QUERY = gql`
 	query sumDealVotes(
 		$dealId: uuid!
