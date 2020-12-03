@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useQuery } from '@apollo/client'
-import PageWrapper from './PageWrapper'
+import PageWrapper from './DealsPageWrapper'
 import DetailedDealCard from '../components/DetailedDealCard'
 import { GET_DEAL_BY_ID_QUERY } from '../graphql/queries'
 
@@ -22,7 +22,7 @@ const DealInfo = ({ id }) => {
 	if (error) return 'Error loading the details'
 
 	return (
-		<PageWrapper width="full" maxWidth="1280px" mx="auto" px={6} py={6}>
+		<PageWrapper width="full" maxWidth="1280px" mx="auto" px={6} py={6} isDisabled>
 			{deals && deals.map((deal) => {
 				const {
 					name, city, state, description, street, zip,
