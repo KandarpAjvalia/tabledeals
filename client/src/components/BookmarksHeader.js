@@ -7,7 +7,7 @@ import LoginButton from './LoginButton'
 import { Context as UserContext } from '../context/UserContext'
 import ToggleColorButton from './ToggeColorButton'
 
-const Header = () => {
+const BookmarksHeader = () => {
 	const userContext = useContext(UserContext)
 
 	const { colorMode } = useColorMode()
@@ -47,4 +47,4 @@ const Header = () => {
 		</Box>
 	)
 }
-export default Header
+export default BookmarksHeader

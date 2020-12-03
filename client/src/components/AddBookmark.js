@@ -8,6 +8,7 @@ import { useQuery } from '@apollo/client'
 import { Context as UserContext } from '../context/UserContext'
 import { GET_USER_DEAL_BOOKMARK_QUERY } from '../graphql/queries'
 
+// eslint-disable-next-line react/prop-types
 const AddBookmark = ({ dealId }) => {
 	const userContext = useContext(UserContext)
 	const userId = userContext.state.user && userContext.state.user.sub
