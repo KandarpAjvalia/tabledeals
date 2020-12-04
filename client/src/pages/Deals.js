@@ -51,6 +51,7 @@ const Deals = () => {
 							city={city}
 							state={state}
 							dealId={deal.id}
+							isVegetarian={deal.isVegetarian}
 						/>
 					)
 				})}

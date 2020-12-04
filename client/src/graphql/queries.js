@@ -13,7 +13,7 @@ export const GET_DEALS_QUERY = gql`
 				city
 				state
 			}
-			
+			isVegetarian
 		}
 	}
 `
