@@ -10,7 +10,7 @@ const Deals = () => {
 	const { data } = useQuery(GET_DEALS_QUERY)
 	const [deals, setDeals] = useState([])
 	const [dealSearch, setDealSearch] = useState('')
-	const { dealTypeFilters } = useSearch()
+	const { dealTypeFilters, foodOptionFilters } = useSearch()
 
 	useEffect(() => {
 		if (data && data.deal) {
@@ -32,6 +32,12 @@ const Deals = () => {
 	}
 
 	const matchDealType = (deal) => dealTypeFilters.includes(deal.type)
+	const matchFoodOption = (deal) => {
+		if (foodOptionFilters.includes('Vegetarian')) {
+			return deal.isVegetarian
+		}
+		return true
+	}
 
 	return (
 		<PageWrapper
@@ -44,7 +50,7 @@ const Deals = () => {
 			handleDealSearch={handleDealSearch}
 		>
 			<Box width="full" maxWidth="1280px" mx="auto" px={6} py={6}>
-				{deals && deals.filter(matchDealType).map((deal) => {
+				{deals && deals.filter(matchDealType).filter(matchFoodOption).map((deal) => {
 					const { name, city, state } = deal.restaurant
 					return (
 						<DealCard

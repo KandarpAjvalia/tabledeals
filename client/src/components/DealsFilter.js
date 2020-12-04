@@ -6,7 +6,12 @@ import { useSearch } from '../hooks/search'
 
 const DealFilter = (props) => {
 	const { colorMode } = useColorMode()
-	const { dealTypeFilters, onDealTypeFilter } = useSearch()
+	const {
+		dealTypeFilters,
+		onDealTypeFilter,
+		foodOptionFilters,
+		onFoodOptionFilter
+	} = useSearch()
 
 	return (
 		// eslint-disable-next-line react/jsx-props-no-spreading
@@ -36,6 +41,21 @@ const DealFilter = (props) => {
 					<Checkbox value="Food">Food</Checkbox>
 				</CheckboxGroup>
 			</Box>
+			{dealTypeFilters.includes('Food') && (
+				<Box>
+					<Text mb={2} fontWeight="bold">
+						Food Option
+					</Text>
+					<CheckboxGroup
+						spacing={2}
+						variantColor="orange"
+						value={foodOptionFilters}
+						onChange={onFoodOptionFilter}
+					>
+						<Checkbox value="Vegetarian">Vegetarian</Checkbox>
+					</CheckboxGroup>
+				</Box>
+			)}
 		</Stack>
 	)
 }
