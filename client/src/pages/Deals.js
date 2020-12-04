@@ -4,11 +4,13 @@ import { Box } from '@chakra-ui/core'
 import DealCard from '../components/DealCard'
 import { GET_DEALS_QUERY } from '../graphql/queries'
 import PageWrapper from './DealsPageWrapper'
+import { useSearch } from '../hooks/search'
 
 const Deals = () => {
 	const { data } = useQuery(GET_DEALS_QUERY)
 	const [deals, setDeals] = useState([])
 	const [dealSearch, setDealSearch] = useState('')
+	const { dealTypeFilters } = useSearch()
 
 	useEffect(() => {
 		if (data && data.deal) {
@@ -29,6 +31,8 @@ const Deals = () => {
 		}
 	}
 
+	const matchDealType = (deal) => dealTypeFilters.includes(deal.type)
+
 	return (
 		<PageWrapper
 			width="full"
@@ -40,7 +44,7 @@ const Deals = () => {
 			handleDealSearch={handleDealSearch}
 		>
 			<Box width="full" maxWidth="1280px" mx="auto" px={6} py={6}>
-				{deals && deals.map((deal) => {
+				{deals && deals.filter(matchDealType).map((deal) => {
 					const { name, city, state } = deal.restaurant
 					return (
 						<DealCard

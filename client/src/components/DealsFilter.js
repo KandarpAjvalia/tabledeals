@@ -2,9 +2,11 @@ import React from 'react'
 import {
 	Box, Text, Stack, CheckboxGroup, Checkbox, Select, useColorMode
 } from '@chakra-ui/core'
+import { useSearch } from '../hooks/search'
 
 const DealFilter = (props) => {
 	const { colorMode } = useColorMode()
+	const { dealTypeFilters, onDealTypeFilter } = useSearch()
 
 	return (
 		// eslint-disable-next-line react/jsx-props-no-spreading
@@ -27,7 +29,8 @@ const DealFilter = (props) => {
 				<CheckboxGroup
 					spacing={2}
 					variantColor="orange"
-					value="Food"
+					value={dealTypeFilters}
+					onChange={onDealTypeFilter}
 				>
 					<Checkbox value="Drink">Drink</Checkbox>
 					<Checkbox value="Food">Food</Checkbox>
