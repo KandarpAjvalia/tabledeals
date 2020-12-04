@@ -38,3 +38,12 @@ export const UPSERT_USER_DEAL_MUTATION = gql`
 		}
 	}
 `
+export const CREATE_COMMENT_MUTATION = gql`
+	mutation createComment(
+		$comment: String!
+	) {
+		insert_deal_one(object: {
+			comment: $comment
+		}) 
+	}
+`
