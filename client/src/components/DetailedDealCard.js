@@ -9,8 +9,8 @@ import {
 	AspectRatioBox,
 	Image,
 	useColorMode
-}
-	from '@chakra-ui/core'
+} from '@chakra-ui/core'
+import { formatTime } from '../utils'
 import AddVote from './AddVote'
 
 const DetailedDealCard = ({
@@ -55,9 +55,7 @@ const DetailedDealCard = ({
 								Open from:
 							</Text>
 							<Text>
-								{openingTime}
-								-
-								{closingTime}
+								{`${formatTime(openingTime)} - ${formatTime(closingTime)}`}
 							</Text>
 						</Stack>
 
