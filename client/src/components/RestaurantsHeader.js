@@ -7,7 +7,8 @@ import LoginButton from './LoginButton'
 import { Context as UserContext } from '../context/UserContext'
 import ToggleColorButton from './ToggeColorButton'
 
-const RestaurantsHeader = () => {
+// eslint-disable-next-line react/prop-types
+const RestaurantsHeader = ({ restaurantSearch, handleRestaurantSearch, isDisabled }) => {
 	const userContext = useContext(UserContext)
 
 	const { colorMode } = useColorMode()
@@ -36,8 +37,11 @@ const RestaurantsHeader = () => {
 						</InputLeftElement>
 						<Input
 							type="text"
+							value={restaurantSearch}
+							onChange={handleRestaurantSearch}
 							placeholder="Search for restaurants"
 							bg={colorMode === 'light' ? 'gray.100' : 'gray.700'}
+							isDisabled={isDisabled}
 						/>
 					</InputGroup>
 					{userContext.state.isAuthenticated ? <LogoutButton /> : <LoginButton /> }

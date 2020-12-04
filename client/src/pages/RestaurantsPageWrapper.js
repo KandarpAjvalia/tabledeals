@@ -4,13 +4,19 @@ import { Box, useColorMode } from '@chakra-ui/core'
 import RestaurantsHeader from '../components/RestaurantsHeader'
 import RestaurantsSideBar from '../components/RestaurantsSideBar'
 
-// eslint-disable-next-line react/prop-types
-const RestaurantsPageWrapper = ({ children, ...rest }) => {
+const RestaurantsPageWrapper = ({
+	// eslint-disable-next-line react/prop-types
+	children, restaurantSearch, handleRestaurantSearch, isDisabled = false, ...rest
+}) => {
 	const { colorMode } = useColorMode()
 
 	return (
 		<>
-			<RestaurantsHeader />
+			<RestaurantsHeader
+				restaurantSearch={restaurantSearch}
+				handleRestaurantSearch={handleRestaurantSearch}
+				isDisabled={isDisabled}
+			/>
 			<Box>
 				<RestaurantsSideBar maxWidth="18rem" width="full" />
 				<Box pl={[0, null, '18rem']} mt="4rem">
