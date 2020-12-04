@@ -72,7 +72,7 @@ export const GET_USER_DEAL_BOOKMARK_QUERY = gql`
 	}
 `
 
-export const GET_BOOKMARKED_USER_DEALS_QUERY = gql`
+export const GET_BOOKMARKED_DEALS_QUERY = gql`
 	query getBookmarkedDeals (
 		$userId: uuid!
 	) {
@@ -81,7 +81,7 @@ export const GET_BOOKMARKED_USER_DEALS_QUERY = gql`
 			user_deals: {
 				_and: {
 					isBookmarked: {
-						_eq: True
+						_eq: true
 					}, 
 					user_id: {
 						_eq: $userId

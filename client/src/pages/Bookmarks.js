@@ -6,27 +6,39 @@ import React, {
 import { useQuery } from '@apollo/client'
 import DealCard from '../components/DealCard'
 import BookmarksPageWrapper from './BookmarksPageWrapper'
-import { GET_BOOKMARKED_USER_DEALS_QUERY } from '../graphql/queries'
+import { GET_BOOKMARKED_DEALS_QUERY } from '../graphql/queries'
 import { Context as UserContext } from '../context/UserContext'
 
 const Bookmarks = () => {
 	const userContext = useContext(UserContext)
 	const userId = userContext.state.user && userContext.state.user.sub
-	const gqlBookmarkedUserDeal = useQuery(GET_BOOKMARKED_USER_DEALS_QUERY, {
+	const gqlBookmarkedDeals = useQuery(GET_BOOKMARKED_DEALS_QUERY, {
 		variables: {
 			userId
 		}
 	})
-	const [deals, setDeals] = useState(0)
-
+	const [deals, setDeals] = useState([])
 	useEffect(() => {
-		if (1 === 1) {
-			setDeals(1)
+		if (gqlBookmarkedDeals && gqlBookmarkedDeals.deal) {
+			setDeals(gqlBookmarkedDeals.deal)
 		}
-	}, [gqlBookmarkedUserDeal.data])
+	}, [gqlBookmarkedDeals])
 	return (
 		<BookmarksPageWrapper width="full" maxWidth="1280px" mx="auto" px={6} py={6}>
-			{deals}
+			{deals && deals.map((deal) => {
+				const { name, city, state } = deal.restaurant
+				return (
+					<DealCard
+						key={deal.id}
+						title={deal.title}
+						dealType={deal.type}
+						restaurantName={name}
+						city={city}
+						state={state}
+						dealId={deal.id}
+					/>
+				)
+			})}
 		</BookmarksPageWrapper>
 	)
 }
