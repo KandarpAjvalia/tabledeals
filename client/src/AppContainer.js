@@ -8,7 +8,6 @@ import {
 import Home from './pages/Home'
 import Deals from './pages/Deals'
 import Restaurants from './pages/Restaurants'
-import Bookmarks from './pages/Bookmarks'
 import DealInfo from './pages/DealInfo'
 import { Context as UserContext } from './context/UserContext'
 
@@ -62,7 +61,6 @@ const AppContainer = () => {
 				<Route exact path="/" component={Home} />
 				<Route exact path="/deals" component={Deals} />
 				<Route exact path="/restaurants" component={Restaurants} />
-				<Route exact path="/bookmarks" component={Bookmarks} />
 				<Route
 					exact
 					path="/deal/:id"

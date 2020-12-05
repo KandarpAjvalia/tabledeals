@@ -27,9 +27,6 @@ const PageLinks = () => (
 		<SideBarLink href="/restaurants">
 			Restaurants
 		</SideBarLink>
-		<SideBarLink href="/bookmarks">
-			Bookmarks
-		</SideBarLink>
 	</Stack>
 )
 
