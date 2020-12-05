@@ -5,9 +5,10 @@ import React, {
 } from 'react'
 import { Auth } from 'aws-amplify'
 import { IconButton } from '@chakra-ui/core'
-import { useLazyQuery } from '@apollo/client'
+import { useLazyQuery, useMutation } from '@apollo/client'
 import { Context as UserContext } from '../context/UserContext'
 import { GET_USER_DEAL_BOOKMARK_QUERY } from '../graphql/queries'
+import { UPSERT_USER_DEAL_BOOKMARK_MUTATION } from '../graphql/mutations'
 
 // eslint-disable-next-line react/prop-types
 const AddBookmark = ({ dealId }) => {
@@ -21,8 +22,11 @@ const AddBookmark = ({ dealId }) => {
 		}
 	})
 
+	const [upsertUserDealBookmark] = useMutation(UPSERT_USER_DEAL_BOOKMARK_MUTATION)
+
 	const [currentBookmark, setCurrentBookmark] = useState(false)
-	useEffect(async () => {
+
+	const initalLoad = async () => {
 		const user = await Auth.currentAuthenticatedUser()
 		const { jwtToken } = user.signInUserSession.idToken
 		getUserBookmark({
@@ -32,6 +36,10 @@ const AddBookmark = ({ dealId }) => {
 				}
 			},
 		})
+	}
+
+	useEffect(() => {
+		initalLoad()
 	}, [])
 	useEffect(() => {
 		if (gqlUserDealExists.data) {
@@ -41,8 +49,29 @@ const AddBookmark = ({ dealId }) => {
 		}
 	}, [gqlUserDealExists.data])
 
-	const onBookmark = () => {
+	const onBookmark = async () => {
+		const previousBookmark = currentBookmark
+		setCurrentBookmark(!currentBookmark)
+
+		const upsertDealVariables = {
+			id: userId + dealId,
+			dealId,
+			isBookmarked: !previousBookmark
+		}
+
+		const user = await Auth.currentAuthenticatedUser()
+
+		const { jwtToken } = user.signInUserSession.idToken
+		upsertUserDealBookmark({
+			variables: upsertDealVariables,
+			context: {
+				headers: {
+					Authorization: `Bearer ${jwtToken}`
+				}
+			}
+		})
 	}
+
 	return (
 		<>
 			<IconButton

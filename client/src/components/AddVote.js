@@ -67,7 +67,6 @@ const AddVote = ({ dealId }) => {
 		const user = await Auth.currentAuthenticatedUser()
 
 		const { jwtToken } = user.signInUserSession.idToken
-		console.log(jwtToken)
 		upsertUserDeal({
 			variables: upsertDealVariables,
 			context: {
