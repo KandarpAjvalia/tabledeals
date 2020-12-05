@@ -2,11 +2,11 @@
 import React, { useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 
-import './App.css';
+import '../Maps.css';
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
-const App = () => {
+const Map = () => {
   const mapContainerRef = useRef(null);
 
   // initialize map when component mounts
@@ -29,4 +29,4 @@ const App = () => {
   return <div className="map-container" ref={mapContainerRef} />;
 };
 
-export default App;
+export default Map;
