@@ -51,6 +51,30 @@ export const GET_USER_DEAL_QUERY = gql`
 
 `
 
+export const GET_USER_DEAL_BOOKMARK_QUERY = gql`
+	query getUserDeal(
+		$userId: uuid!
+		$dealId: uuid!
+	) {
+		user_deal(
+			where: {
+			_and: {
+				user_id: {
+				_eq: $userId
+				}, 
+				deal_id: {
+				_eq: $dealId
+				}
+			}
+			}
+		) {
+			id
+			isBookmarked
+		}
+	}
+
+`
+
 export const SUM_USER_DEAL_VOTES_QUERY = gql`
 	query sumDealVotes(
 		$dealId: uuid!
