@@ -1,35 +1,54 @@
 import React from 'react'
 import {
-	Box, Heading, Text, Button
+	Box,
+	Heading,
+	Text,
+	Image
 } from '@chakra-ui/core'
-import { Link } from 'react-router-dom'
+import {
+	motion,
+	useViewportScroll,
+	useTransform
+} from 'framer-motion'
+import DealsImage from '../images/deals-page.png'
+
+const MotionBox = motion.custom(Box)
 
 // eslint-disable-next-line react/jsx-props-no-spreading
 export const Container = (props) => <Box width="full" maxWidth="1280px" mx="auto" px={6} {...props} />
 
-const HomepageBody = () => (
-	<Box as="section" pt={40} pb={24}>
-		<Container>
-			<Box maxW="xl" mx="auto" textAlign="center">
-				<Heading as="h1" size="xl" fontWeight="black">
-					An easy way to find the best deals around you so that you can save on food.
-				</Heading>
+const HomepageBody = () => {
+	const { scrollYProgress } = useViewportScroll()
 
-				<Text opacity="0.7" fontSize="lg" mt="6">
-					From chain restaurants to local businesses, TableDeals helps users find
-					special discounts on food.
-				</Text>
+	const xRotAnim = useTransform(scrollYProgress, [0, 0.5, 1], [30, 15, 0])
 
-				<Box mt="6">
-					<Link to="/deals">
-						<Button size="lg" variantColor="orange">
-							Get Started
-						</Button>
-					</Link>
+	return (
+		<Box as="section" pt={40} pb={24}>
+			<Container>
+				<Box maxW="xl" mx="auto" mb={10} textAlign="center">
+					<Heading as="h1" size="xl" fontWeight="black">
+						An easy way to find the best deals around you so that you can save on food.
+					</Heading>
+
+					<Text opacity="0.7" fontSize="lg" mt="6">
+						From chain restaurants to local businesses, TableDeals helps users find
+						special discounts on food.
+					</Text>
 				</Box>
-			</Box>
-		</Container>
-	</Box>
-)
+				<MotionBox
+					mx="auto"
+					// maxW={700}
+					textAlign="center"
+					style={{
+						perspective: 800,
+						rotateX: xRotAnim,
+					}}
+				>
+					<Image src={DealsImage} alt="deals" />
+				</MotionBox>
+			</Container>
+		</Box>
+	)
+}
 
 export default HomepageBody
