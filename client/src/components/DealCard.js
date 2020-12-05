@@ -7,7 +7,7 @@ import AddVote from './AddVote'
 
 const DealCard = ({
 	// eslint-disable-next-line react/prop-types
-	title, restaurantName, city, state, dealType, dealId
+	title, restaurantName, city, state, dealType, dealId, isVegetarian
 }) => {
 	const { colorMode } = useColorMode()
 
@@ -28,7 +28,15 @@ const DealCard = ({
 				</Stack>
 				<Stack ml={3} mt={2} mb={2} w="100%" pr={4}>
 					<Flex align="baseline">
-						<Badge variantColor="orange">{dealType}</Badge>
+						<Badge variantColor={dealType === 'Food' ? 'orange' : 'blue'} mr={2}>{dealType}</Badge>
+						{(() => {
+							if (dealType === 'Food') {
+								if (isVegetarian) {
+									return <Badge variantColor="green">Veg</Badge>
+								}
+							}
+							return null
+						})()}
 					</Flex>
 					<Flex align="center" justify="space-between">
 						<Link to={`/deal/${dealId}`}>

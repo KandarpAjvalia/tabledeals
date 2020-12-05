@@ -36,7 +36,7 @@ const RestaurantCard = ({
 					</Text>
 				</Box>
 				<Box>
-					<Text >
+					<Text>
 						{street}
 						{' '}
 						{city}

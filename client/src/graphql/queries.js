@@ -13,7 +13,7 @@ export const GET_DEALS_QUERY = gql`
 				city
 				state
 			}
-			
+			isVegetarian
 		}
 	}
 `
@@ -23,6 +23,7 @@ export const GET_RESTAURANTS_QUERY = gql`
 		restaurant {
 			id
 			name
+			isVegetarian
 		}
 	}
 `
