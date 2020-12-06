@@ -32,22 +32,22 @@ const DealCard = ({
 				</Stack>
 				<Stack ml={3} mt={2} mb={2} w="100%" pr={4}>
 					<Flex align="baseline" justify="space-between">
-						<Badge variantColor="orange">{dealType}</Badge>
+						<Box>
+							<Badge variantColor={dealType === 'Food' ? 'orange' : 'blue'} mr={2}>{dealType}</Badge>
+							{(() => {
+								if (dealType === 'Food') {
+									if (isVegetarian) {
+										return <Badge variantColor="green">Veg</Badge>
+									}
+								}
+								return null
+							})()}
+						</Box>
 						{isAuthenticated && (
 							<AddBookmark
 								dealId={dealId}
 							/>
 						)}
-// 					<Flex align="baseline">
-// 						<Badge variantColor={dealType === 'Food' ? 'orange' : 'blue'} mr={2}>{dealType}</Badge>
-// 						{(() => {
-// 							if (dealType === 'Food') {
-// 								if (isVegetarian) {
-// 									return <Badge variantColor="green">Veg</Badge>
-// 								}
-// 							}
-// 							return null
-// 						})()}
 					</Flex>
 					<Flex align="center" justify="space-between">
 						<Link to={`/deal/${dealId}`}>
