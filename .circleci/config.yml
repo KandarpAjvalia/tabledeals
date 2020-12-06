@@ -4,6 +4,6 @@ orbs:
   node: circleci/node@4.1.0
   
 workflows:
-  heroku_deploy:
+  code-test:
     jobs:
        - node/test

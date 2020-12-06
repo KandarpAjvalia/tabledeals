@@ -8,8 +8,8 @@ import {
 } from '@chakra-ui/core'
 import { useInView } from 'react-intersection-observer'
 import { motion, useAnimation } from 'framer-motion'
-import ReactImage from '../images/react.png'
-import GraphQLImage from '../images/graphql.png'
+import KandarpImage from '../images/kandarp.png'
+import GerryImage from '../images/gerry.png'
 import PostgresImage from '../images/postgres.png'
 
 const MotionBox = motion.custom(Box)
@@ -28,20 +28,24 @@ const variant = {
 
 const technologies = [
 	{
-		title: 'React',
-		ImageComponent: ReactImage
+		name: 'Kandarp Ajvalia',
+		ImageComponent: KandarpImage
 	},
 	{
-		title: 'GraphQL',
-		ImageComponent: GraphQLImage
+		name: 'Gerry Agbay',
+		ImageComponent: GerryImage
 	},
 	{
-		title: 'Postgres',
+		name: 'Benjamin Robinson',
+		ImageComponent: PostgresImage
+	},
+	{
+		name: 'Mohamed Shalaby',
 		ImageComponent: PostgresImage
 	}
 ]
 
-const LPTechStack = () => {
+const LPTeam = () => {
 	const controls = useAnimation()
 	const [ref, inView] = useInView({
 		triggerOnce: true,
@@ -60,6 +64,7 @@ const LPTechStack = () => {
 				as="h1"
 				size="xl"
 				fontWeight="black"
+				mb={10}
 				animate={controls}
 				initial="hidden"
 				variants={{
@@ -71,25 +76,29 @@ const LPTechStack = () => {
 				}}
 				transition={{ duration: 2 }}
 			>
-				Technologies
+				Team
 			</MotionHeading>
 			<Flex size="100%" align="center" justify="space-between">
 				{technologies.map((
-					{ title, ImageComponent }
+					{ name, ImageComponent }
 				) => (
 					<MotionBox
+						bg="gray.700"
+						borderRadius={10}
+						boxShadow="rgba(0, 0, 0, 0.4) 0px 30px 30px"
 						animate={controls}
 						initial="hidden"
 						variants={variant}
 						transition={{ duration: 1.5 }}
 					>
 						<Image
-							h={200}
+							h={150}
 							m={10}
 							src={ImageComponent}
+							borderRadius="50%"
 						/>
-						<Text fontSize="lg">
-							{title}
+						<Text fontSize="lg" mb={5} color="white">
+							{name}
 						</Text>
 					</MotionBox>
 				))}
@@ -98,4 +107,4 @@ const LPTechStack = () => {
 	)
 }
 
-export default LPTechStack
+export default LPTeam

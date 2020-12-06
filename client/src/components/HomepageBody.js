@@ -15,6 +15,7 @@ import DealImage from '../images/deal.png'
 import AnimatedDealSection from './LPAnimatedCardSection'
 import RestaurantImage from '../images/restaurant.png'
 import LPTechStack from './LPTechStack'
+import LPTeam from './LPTeam'
 
 const MotionBox = motion.custom(Box)
 
@@ -64,7 +65,12 @@ const HomepageBody = () => {
 						rotateX: xRotAnim,
 					}}
 				>
-					<Image src={DealsImage} alt="deals" />
+					<Image
+						src={DealsImage}
+						alt="deals"
+						borderRadius={10}
+						boxShadow="rgba(0, 0, 0, 0.4) 0px 30px 30px"
+					/>
 				</MotionBox>
 			</Container>
 			<Container>
@@ -82,6 +88,9 @@ const HomepageBody = () => {
 			</Container>
 			<Container>
 				<LPTechStack />
+			</Container>
+			<Container>
+				<LPTeam />
 			</Container>
 		</Box>
 	)

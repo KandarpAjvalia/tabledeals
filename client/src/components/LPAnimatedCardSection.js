@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/core'
 
 const MotionBox = motion.custom(Box)
+const MotionHeading = motion.custom(Heading)
 
 const slidePosition = {
 	left: '-100vw',
@@ -33,7 +34,7 @@ const AnimatedDeal = ({
 	const controls = useAnimation()
 	const [ref, inView] = useInView({
 		triggerOnce: true,
-		threshold: 0.25
+		threshold: 0.4
 	})
 
 	useEffect(() => {
@@ -71,16 +72,8 @@ const AnimatedDeal = ({
 		<MotionBox
 			animate={controls}
 			initial="hidden"
-			variants={{
-				visible: {
-					opacity: 1,
-					x: 0
-				},
-				hidden: {
-					opacity: 0,
-				}
-			}}
-			transition={{ duration: 1.5 }}
+			variants={variant}
+			transition={{ duration: 2 }}
 			m={10}
 		>
 			<Text opacity="0.7" fontSize="lg">
@@ -90,9 +83,17 @@ const AnimatedDeal = ({
 	)
 	return (
 		<Box textAlign="center" mb={20} ref={ref}>
-			<Heading as="h1" size="xl" fontWeight="black">
+			<MotionHeading
+				as="h1"
+				size="xl"
+				fontWeight="black"
+				animate={controls}
+				initial="hidden"
+				variants={variant}
+				transition={{ duration: 1.5 }}
+			>
 				{title}
-			</Heading>
+			</MotionHeading>
 			<Flex size="100%" align="center" justify="space-between">
 				{imagePosition === 'left' ? (
 					<>
