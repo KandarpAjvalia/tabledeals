@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ReactMapGL from 'react-map-gl'
+
 const MapLocation = () => {
 	const [viewport, setViewport] = useState({
 		latitude: -1.9444,

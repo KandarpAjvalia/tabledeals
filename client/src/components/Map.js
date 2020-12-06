@@ -1,6 +1,7 @@
 import React from 'react'
-import MapLocations from '../components/MapLocations'
+import MapLocations from './MapLocations'
 import RestaurantsPageWrapper from './RestaurantsPageWrapper'
+
 const Map = () => (
 	<RestaurantsPageWrapper
 		width="full"
