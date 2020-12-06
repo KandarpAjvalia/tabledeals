@@ -14,6 +14,7 @@ import DealsImage from '../images/deals-page.png'
 import DealImage from '../images/deal.png'
 import AnimatedDealSection from './LPAnimatedCardSection'
 import RestaurantImage from '../images/restaurant.png'
+import LPTechStack from './LPTechStack'
 
 const MotionBox = motion.custom(Box)
 
@@ -78,6 +79,9 @@ const HomepageBody = () => {
 						imgW={imgW}
 					/>
 				))}
+			</Container>
+			<Container>
+				<LPTechStack />
 			</Container>
 		</Box>
 	)
