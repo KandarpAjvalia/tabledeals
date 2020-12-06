@@ -9,7 +9,6 @@ const MapLocations = () => {
 		bearing: 0,
 		pitch: 0,
 	})
-
 	return (
 		<div>
 			<ReactMapGL
@@ -24,5 +23,4 @@ const MapLocations = () => {
 		</div>
 	)
 }
-
 export default MapLocations
