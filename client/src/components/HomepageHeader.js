@@ -4,6 +4,7 @@ import {
 } from '@chakra-ui/core'
 import { Link } from 'react-router-dom'
 import LoginButton from './LoginButton'
+import ToggleColorButton from './ToggeColorButton'
 
 const HomepageHeader = () => (
 	<Box as="header" width="full" height="4rem">
@@ -15,8 +16,9 @@ const HomepageHeader = () => (
 				<Flex align="center">
 					<LoginButton />
 					<Link to="/deals">
-						<Button variantColor="orange">Find Deals</Button>
+						<Button variantColor="orange" m="2">Find Deals</Button>
 					</Link>
+					<ToggleColorButton />
 				</Flex>
 			</Flex>
 		</Box>
