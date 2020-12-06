@@ -3,14 +3,14 @@
   "scripts": {
     "client:install": "cd client && npm install",
     "server:install": "cd server && npm install",
-	"install:all": "npm install && npm run client:install && npm run server:install",
+    "install:all": "npm install && npm run client:install && npm run server:install",
     "client:dev": "cd client && npm run dev",
     "server:dev": "cd server && npm run dev",
-	"dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
-	"heroku-prebuild": "npm run install:all",
-	"heroku-postbuild": "cd client && npm run build",
-	"start": "cd server && npm start",
-	"test": "cd client && npm test"
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "heroku-prebuild": "npm run install:all",
+    "heroku-postbuild": "cd client && npm run build",
+    "start": "cd server && npm start",
+    "test": "cd client && npm test"
   },
   "devDependencies": {
     "concurrently": "^5.3.0",

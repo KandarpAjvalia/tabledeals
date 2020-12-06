@@ -8,14 +8,38 @@ import { GET_RESTAURANTS_ALL_INFO_QUERY } from '../graphql/queries'
 const Restaurants = () => {
 	const { data } = useQuery(GET_RESTAURANTS_ALL_INFO_QUERY)
 	const [restaurants, setRestaurants] = useState([])
+	const [restaurantSearch, setRestaurantSearch] = useState('')
 
 	useEffect(() => {
 		if (data && data.restaurant) {
 			setRestaurants(data.restaurant)
 		}
 	}, [data])
+
+	const handleRestaurantSearch = (e) => {
+		const searchTerm = e.target.value
+		setRestaurantSearch(searchTerm)
+		if (searchTerm === '') {
+			setRestaurants(data.restaurant)
+		} else {
+			setRestaurants(data.restaurant.filter((restaurant) =>
+				// eslint-disable-next-line implicit-arrow-linebreak
+				restaurant.name.toLowerCase().includes(searchTerm.toLowerCase())
+				|| restaurant.description.toLowerCase().includes(searchTerm.toLowerCase())
+				|| restaurant.street.toLowerCase().includes(searchTerm.toLowerCase())))
+		}
+	}
+
 	return (
-		<RestaurantsPageWrapper width="full" maxWidth="1280px" mx="auto" px={6} py={6}>
+		<RestaurantsPageWrapper
+			width="full"
+			maxWidth="1280px"
+			mx="auto"
+			px={6}
+			py={6}
+			restaurantSearch={restaurantSearch}
+			handleRestaurantSearch={handleRestaurantSearch}
+		>
 			<SimpleGrid columns={3} spacing={5}>
 				{restaurants && restaurants.map((restaurant) => (
 					<RestaurantCard

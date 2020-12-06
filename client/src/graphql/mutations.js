@@ -40,3 +40,24 @@ export const UPSERT_USER_DEAL_MUTATION = gql`
 		}
 	}
 `
+
+export const UPSERT_USER_DEAL_BOOKMARK_MUTATION = gql`
+	mutation upsertUserDeal(
+		$id: String!
+		$dealId: uuid!
+		$isBookmarked: Boolean!
+	) {
+		insert_user_deal_one(
+			object: {
+				id: $id, 
+				deal_id: $dealId,
+				isBookmarked: $isBookmarked
+			}, 
+			on_conflict: {
+				constraint: user_deal_id_key, update_columns: isBookmarked
+			}) {
+				isBookmarked
+				id
+		}
+	}
+`
