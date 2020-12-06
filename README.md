@@ -25,7 +25,7 @@ npm run install:all
 
 Runs server and client
 ```sh
-w
+npm run dev
 ```
 
 ---
