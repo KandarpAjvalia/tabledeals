@@ -10,6 +10,7 @@ import { useInView } from 'react-intersection-observer'
 import { motion, useAnimation } from 'framer-motion'
 import KandarpImage from '../images/kandarp.png'
 import GerryImage from '../images/gerry.png'
+import MohamedImage from '../images/mohamed.png'
 import PostgresImage from '../images/postgres.png'
 
 const MotionBox = motion.custom(Box)
@@ -41,7 +42,7 @@ const technologies = [
 	},
 	{
 		name: 'Mohamed Shalaby',
-		ImageComponent: PostgresImage
+		ImageComponent: MohamedImage
 	}
 ]
 
