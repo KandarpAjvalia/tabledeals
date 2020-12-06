@@ -21,6 +21,7 @@ import {
 	Button,
 	RadioGroup,
 	Radio,
+	Stack
 } from '@chakra-ui/core'
 import { useQuery, useMutation } from '@apollo/client'
 import { Auth } from 'aws-amplify'
@@ -37,6 +38,9 @@ const AddDeal = () => {
 
 	const [dealType, setDealType] = useState('Food')
 	const [restaurants, setRestaurants] = useState([])
+	const [selectedRestaurantIndex, setSelectedRestaurantIndex] = useState(null)
+	const [isVegetarian, setIsVegetarian] = useState(false)
+
 	const { data } = useQuery(GET_RESTAURANTS_QUERY)
 	const [createDeal] = useMutation(CREATE_DEAL_MUTATION)
 
@@ -47,13 +51,14 @@ const AddDeal = () => {
 	}, [data])
 
 	const onCreateDeal = async ({
-		dealType, title, description, restaurantId
+		dealType, title, description, restaurantId, isVegetarian
 	}, onClose) => {
 		const addDealVariables = {
 			title,
 			description,
 			dealType,
 			restaurantId,
+			isVegetarian
 		}
 
 		const user = await Auth.currentAuthenticatedUser()
@@ -67,6 +72,9 @@ const AddDeal = () => {
 				}
 			}
 		})
+
+		setIsVegetarian(false)
+		setSelectedRestaurantIndex(null)
 
 		onClose()
 	}
@@ -95,6 +103,7 @@ const AddDeal = () => {
 								title: data.title,
 								description: data.description,
 								restaurantId: data.restaurantId,
+								isVegetarian
 							},
 							onClose
 						))}
@@ -152,12 +161,28 @@ const AddDeal = () => {
 									placeholder="Select a Restaurant"
 									data-testid="selectRestaurant"
 								>
-									{restaurants && restaurants.map((restaurant) => (
-										<option key={restaurant.id} value={restaurant.id}>
+									{restaurants && restaurants.map((restaurant, i) => (
+										<option
+											key={restaurant.id}
+											value={restaurant.id}
+											onClick={() => setSelectedRestaurantIndex(i)}
+										>
 											{restaurant.name}
 										</option>
 									))}
 								</Select>
+								<FormControl mt={4}>
+									{dealType === 'Food' && selectedRestaurantIndex && restaurants[selectedRestaurantIndex].isVegetarian ? (
+										<Button
+											variantColor={isVegetarian ? 'green' : 'red'}
+											onClick={() => setIsVegetarian((prevState) => !prevState)}
+										>
+											{isVegetarian ? 'Vegetarian' : 'Non Vegetarian'}
+										</Button>
+									) : (
+										null
+									)}
+								</FormControl>
 								<FormErrorMessage>
 									{errors.restaurantId && errors.restaurantId.message}
 								</FormErrorMessage>

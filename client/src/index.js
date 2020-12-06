@@ -6,6 +6,7 @@ import config from './aws-exports'
 import App from './App'
 import { Provider as UserProvider } from './context/UserContext'
 import { createApolloClient } from './graphql/apollo'
+import { SearchProvider } from './hooks/search'
 
 config.oauth.redirectSignIn = `${window.location.origin}/`
 config.oauth.redirectSignOut = `${window.location.origin}/`
@@ -17,7 +18,9 @@ const client = createApolloClient()
 ReactDOM.render(
 	<ApolloProvider client={client}>
 		<UserProvider>
-			<App />
+			<SearchProvider>
+				<App />
+			</SearchProvider>
 		</UserProvider>
 	</ApolloProvider>,
 	document.getElementById('root')

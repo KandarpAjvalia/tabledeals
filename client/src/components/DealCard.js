@@ -9,7 +9,7 @@ import AddBookmark from './AddBookmark'
 
 const DealCard = ({
 	// eslint-disable-next-line react/prop-types
-	title, restaurantName, city, state, dealType, dealId
+	title, restaurantName, city, state, dealType, dealId, isVegetarian
 }) => {
 	const { colorMode } = useColorMode()
 	const userContext = useContext(UserContext)
@@ -38,6 +38,16 @@ const DealCard = ({
 								dealId={dealId}
 							/>
 						)}
+// 					<Flex align="baseline">
+// 						<Badge variantColor={dealType === 'Food' ? 'orange' : 'blue'} mr={2}>{dealType}</Badge>
+// 						{(() => {
+// 							if (dealType === 'Food') {
+// 								if (isVegetarian) {
+// 									return <Badge variantColor="green">Veg</Badge>
+// 								}
+// 							}
+// 							return null
+// 						})()}
 					</Flex>
 					<Flex align="center" justify="space-between">
 						<Link to={`/deal/${dealId}`}>

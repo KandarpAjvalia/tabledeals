@@ -7,12 +7,14 @@ export const CREATE_DEAL_MUTATION = gql`
 		$description: String!
 		$dealType: String!
 		$restaurantId: uuid!
+		$isVegetarian: Boolean!
 	) {
 		insert_deal_one(object: {
 			title: $title
 			description: $description
 			type: $dealType
 			restaurant_id: $restaurantId
+			isVegetarian: $isVegetarian
 		}) {
 			id
 		}
