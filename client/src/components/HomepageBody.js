@@ -4,7 +4,6 @@ import {
 	Heading,
 	Text,
 	Image,
-	Flex
 } from '@chakra-ui/core'
 import {
 	motion,
@@ -12,9 +11,28 @@ import {
 	useTransform,
 } from 'framer-motion'
 import DealsImage from '../images/deals-page.png'
-import AnimatedDealSection from './AnimatedDealSection'
+import DealImage from '../images/deal.png'
+import AnimatedDealSection from './LPAnimatedCardSection'
+import RestaurantImage from '../images/restaurant.png'
 
 const MotionBox = motion.custom(Box)
+
+const sectionData = [
+	{
+		title: 'Deals',
+		description: 'Find the best deals on your daily food. Search. Add. Vote. Comment',
+		imagePosition: 'left',
+		imgW: '850px',
+		ImageComponent: DealImage
+	},
+	{
+		title: 'Restaurants',
+		description: 'Find the best restaurants near you, and see the deals at the restaurants',
+		imagePosition: 'right',
+		imgW: '350px',
+		ImageComponent: RestaurantImage
+	}
+]
 
 // eslint-disable-next-line react/jsx-props-no-spreading
 export const Container = (props) => <Box width="full" maxWidth="1280px" mx="auto" px={6} {...props} />
@@ -22,12 +40,12 @@ export const Container = (props) => <Box width="full" maxWidth="1280px" mx="auto
 const HomepageBody = () => {
 	const { scrollYProgress } = useViewportScroll()
 
-	const xRotAnim = useTransform(scrollYProgress, [0, 0.5, 1], [30, 15, 0])
+	const xRotAnim = useTransform(scrollYProgress, [0, 0.25, 0.5], [30, 15, 0])
 
 	return (
 		<Box as="section" pt={40} pb={24}>
-			<Container>
-				<Box maxW="xl" mx="auto" mb={10} textAlign="center">
+			<Container h="100vh" mb={200}>
+				<Box maxW="xl" mx="auto" textAlign="center">
 					<Heading as="h1" size="xl" fontWeight="black">
 						An easy way to find the best deals around you so that you can save on food.
 					</Heading>
@@ -47,7 +65,19 @@ const HomepageBody = () => {
 				>
 					<Image src={DealsImage} alt="deals" />
 				</MotionBox>
-				<AnimatedDealSection />
+			</Container>
+			<Container>
+				{sectionData.map(({
+					title, description, imagePosition, ImageComponent, imgW
+				}) => (
+					<AnimatedDealSection
+						title={title}
+						description={description}
+						ImageComponent={ImageComponent}
+						imagePosition={imagePosition}
+						imgW={imgW}
+					/>
+				))}
 			</Container>
 		</Box>
 	)
