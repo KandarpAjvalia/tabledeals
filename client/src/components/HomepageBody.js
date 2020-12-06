@@ -3,14 +3,16 @@ import {
 	Box,
 	Heading,
 	Text,
-	Image
+	Image,
+	Flex
 } from '@chakra-ui/core'
 import {
 	motion,
 	useViewportScroll,
-	useTransform
+	useTransform,
 } from 'framer-motion'
 import DealsImage from '../images/deals-page.png'
+import AnimatedDealSection from './AnimatedDealSection'
 
 const MotionBox = motion.custom(Box)
 
@@ -37,7 +39,6 @@ const HomepageBody = () => {
 				</Box>
 				<MotionBox
 					mx="auto"
-					// maxW={700}
 					textAlign="center"
 					style={{
 						perspective: 800,
@@ -46,6 +47,7 @@ const HomepageBody = () => {
 				>
 					<Image src={DealsImage} alt="deals" />
 				</MotionBox>
+				<AnimatedDealSection />
 			</Container>
 		</Box>
 	)
