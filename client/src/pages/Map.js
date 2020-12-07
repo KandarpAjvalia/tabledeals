@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/client'
 import MapLocations from '../components/MapLocations'
 import RestaurantsPageWrapper from './RestaurantsPageWrapper'
 import { GET_RESTAURANTS_QUERY } from '../graphql/queries'
+
 const Map = () => {
 	const { data } = useQuery(GET_RESTAURANTS_QUERY)
 	return (
