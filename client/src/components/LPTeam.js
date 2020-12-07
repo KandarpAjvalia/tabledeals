@@ -11,7 +11,7 @@ import { motion, useAnimation } from 'framer-motion'
 import KandarpImage from '../images/kandarp.png'
 import GerryImage from '../images/gerry.png'
 import MohamedImage from '../images/mohamed.png'
-import PostgresImage from '../images/postgres.png'
+import BenImage from '../images/ben.png'
 
 const MotionBox = motion.custom(Box)
 const MotionHeading = motion.custom(Heading)
@@ -38,7 +38,7 @@ const technologies = [
 	},
 	{
 		name: 'Benjamin Robinson',
-		ImageComponent: PostgresImage
+		ImageComponent: BenImage
 	},
 	{
 		name: 'Mohamed Shalaby',
