@@ -10,7 +10,6 @@ const mapVariants = {
 // eslint-disable-next-line react/prop-types
 const MapLocations = ({ children }) => {
 	const { colorMode } = useColorMode()
-
 	const [viewport, setViewport] = useState({
 		latitude: 40.7357,
 		longitude: -74.1724,
