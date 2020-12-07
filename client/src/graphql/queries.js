@@ -17,17 +17,17 @@ export const GET_DEALS_QUERY = gql`
 		}
 	}
 `
-
 export const GET_RESTAURANTS_QUERY = gql`
 	query getRestaurants {
 		restaurant {
 			id
 			name
 			isVegetarian
+			lat
+			lon
 		}
 	}
 `
-
 export const GET_USER_DEAL_QUERY = gql`
 	query getUserDeal(
 		$userId: uuid!
@@ -38,7 +38,7 @@ export const GET_USER_DEAL_QUERY = gql`
 			_and: {
 				user_id: {
 				_eq: $userId
-				}, 
+				},
 				deal_id: {
 				_eq: $dealId
 				}
@@ -49,9 +49,7 @@ export const GET_USER_DEAL_QUERY = gql`
 			vote
 		}
 	}
-
 `
-
 export const GET_USER_DEAL_BOOKMARK_QUERY = gql`
 	query getUserDeal(
 		$userId: uuid!
@@ -62,7 +60,7 @@ export const GET_USER_DEAL_BOOKMARK_QUERY = gql`
 			_and: {
 				user_id: {
 				_eq: $userId
-				}, 
+				},
 				deal_id: {
 				_eq: $dealId
 				}
@@ -73,9 +71,7 @@ export const GET_USER_DEAL_BOOKMARK_QUERY = gql`
 			isBookmarked
 		}
 	}
-
 `
-
 export const SUM_USER_DEAL_VOTES_QUERY = gql`
 	query sumDealVotes(
 		$dealId: uuid!
@@ -93,7 +89,6 @@ export const SUM_USER_DEAL_VOTES_QUERY = gql`
 		}
 		}
 	}
-
 `
 export const GET_DEAL_BY_ID_QUERY = gql`
 	query findDeal(
@@ -101,9 +96,9 @@ export const GET_DEAL_BY_ID_QUERY = gql`
 		) {
 			deal(
 				where : {
-					id: { 
-						_eq: $id 
-					} 
+					id: {
+						_eq: $id
+					}
 				}
 		) {
 			id

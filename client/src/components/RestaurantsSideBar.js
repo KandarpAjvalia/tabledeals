@@ -25,6 +25,9 @@ const PageLinks = () => (
 		<SideBarLink href="/restaurants">
 			Restaurants
 		</SideBarLink>
+		<SideBarLink href="/map">
+			Map
+		</SideBarLink>
 	</Stack>
 )
 

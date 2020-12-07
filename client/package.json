@@ -16,6 +16,7 @@
     "@emotion/styled": "^10.0.27",
     "aws-amplify": "^3.3.7",
     "babel-polyfill": "^6.26.0",
+    "dotenv-webpack": "^6.0.0",
     "emotion-theming": "^10.0.27",
     "framer-motion": "^2.9.5",
     "graphql": "^15.4.0",
@@ -23,6 +24,7 @@
     "react-dom": "^16.13.1",
     "react-hook-form": "^6.11.0",
     "react-intersection-observer": "^8.31.0",
+    "react-map-gl": "^5.2.10",
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
