@@ -12,7 +12,7 @@ import Comment from './Comment'
 import { CREATE_COMMENT_MUTATION } from '../graphql/mutations'
 import { GET_COMMENTS_BY_ID_QUERY } from '../graphql/queries'
 
-const CommentCard = ({id}) => {
+const CommentCard = ({ id }) => {
 	const [createComment] = useMutation(CREATE_COMMENT_MUTATION)
 	const userContext = useContext(UserContext)
 	const [comment, setComment] = useState('')
@@ -29,42 +29,42 @@ const CommentCard = ({id}) => {
 
 	if (loading) return null
 	if (error) return 'Error loading the details'
-	// const onCreateComment = async ({
-	// 	comment
-	// }) => {
-	// 	console.log(`Sent ` + comment)
-	// 	const user = await Auth.currentAuthenticatedUser()
-	// 	const idToken = user.signInUserSession.idToken.jwtToken
+	const onCreateComment = async ({
+		comment
+	}) => {
+		console.log(`Sent ` + comment)
+		const user = await Auth.currentAuthenticatedUser()
+		const idToken = user.signInUserSession.idToken.jwtToken
 
-	// 	createComment({
-	// 		variables: comment,
-	// 		context: {
-	// 			headers: {
-	// 				Authorization: `Bearer ${idToken}`
-	// 			}
-	// 		}
-	// 	})
-	// }
+		createComment({
+			variables: comment,
+			context: {
+				headers: {
+					Authorization: `Bearer ${idToken}`
+				}
+			}
+		})
+	}
 
 	const handleInputChange = (evt) => {
 		const inputValue = evt.target.value
 		setComment(inputValue)
 	}
 	// isDisabled={!userContext.state.isAuthenticated}
-	
-	// <IconButton variantColor="blue" aria-label="Send Comment" icon="chevron-right" onClick={onCreateComment({ comment })} />
+
 	return (
 		<Stack>
 			<Text fontSize="md" fontWeight="semibold" lineHeight="short">Comments</Text>
-			<Textarea placeholder="Thoughts on this deal..." resize="none" value={comment} onChange={handleInputChange} size="sm" />
-			{comments && comments.map((comment) => {
-				return (
-					<Stack>
-						<Comment username={comment.user_id} commentText={comment.comment}/>
-					</Stack>
-				)
-			})}
-			
+			<Stack isInline>
+				<Textarea placeholder="Thoughts on this deal..." resize="none" value={comment} onChange={handleInputChange} size="sm" />
+				<IconButton variantColor="blue" maxWidth="10px" height="80px" aria-label="Send Comment" icon="chevron-right" onClick={onCreateComment({ comment })} />
+			</Stack>
+			{comments && comments.map((comment) => (
+				<Stack>
+					<Comment username={comment.user.name} commentText={comment.comment} profile_pic={comment.user.profile_pic} />
+				</Stack>
+			))}
+
 		</Stack>
 	)
 }

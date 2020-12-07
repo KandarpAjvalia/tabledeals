@@ -1,11 +1,12 @@
 import React from 'react'
 import {
-	Stack, Text, Box, useColorMode
+	Stack, Text, Box, useColorMode, Avatar
 } from '@chakra-ui/core'
 
 const Comment = ({
 	username,
-	commentText
+	commentText,
+	profile_pic
 }) => {
 	const { colorMode } = useColorMode()
 	return (
@@ -17,7 +18,8 @@ const Comment = ({
 			bg={colorMode === 'light' ? 'white' : 'gray.700'}
 			boxShadow="sm"
 		>
-			<Stack>
+			<Stack isInline>
+				<Avatar size="xs" name={username} src={profile_pic} />
 				<Text>
 					{username}
 					{': '}

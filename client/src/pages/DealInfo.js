@@ -50,7 +50,7 @@ const DealInfo = ({ id }) => {
 							openingTime={openingTime}
 							closingTime={closingTime}
 						/>
-						<CommentCard id={deal.id}/>
+						<CommentCard id={deal.id} />
 					</Stack>
 				)
 			})}
