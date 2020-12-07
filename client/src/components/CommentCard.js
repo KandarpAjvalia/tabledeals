@@ -11,10 +11,10 @@ import Comment from './Comment'
 import { UPSERT_COMMENT_MUTATION } from '../graphql/mutations'
 import { GET_COMMENTS_BY_ID_QUERY } from '../graphql/queries'
 
+// eslint-disable-next-line react/prop-types
 const CommentCard = ({ dealId }) => {
 	const userContext = useContext(UserContext)
 	const userId = userContext.state.user && userContext.state.user.sub
-	const { isAuthenticated } = userContext.state
 
 	const [comment, setComment] = useState('')
 	const [comments, setComments] = useState([])
@@ -33,9 +33,7 @@ const CommentCard = ({ dealId }) => {
 	if (loading) return null
 	if (error) return 'Error loading the details'
 
-	const onCreateComment = async ({
-		comment
-	}) => {
+	const onCreateComment = async () => {
 		const user = await Auth.currentAuthenticatedUser()
 		const idToken = user.signInUserSession.idToken.jwtToken
 
@@ -50,6 +48,30 @@ const CommentCard = ({ dealId }) => {
 				headers: {
 					Authorization: `Bearer ${idToken}`
 				}
+			},
+			update: (cache) => {
+				const { name, picture } = userContext.state.user
+				const filtered = [...comments].filter((prevComment) => (
+					prevComment.user.id !== userId
+				))
+				const updatedComments = [...filtered, {
+					comment,
+					user: {
+						id: userId,
+						name,
+						profile_pic: picture
+					}
+				}]
+				setComments(updatedComments)
+				cache.writeQuery({
+					query: GET_COMMENTS_BY_ID_QUERY,
+					variables: {
+						dealId
+					},
+					data: {
+						user_deal: updatedComments
+					}
+				})
 			}
 		})
 		setComment('')
@@ -61,21 +83,48 @@ const CommentCard = ({ dealId }) => {
 	}
 
 	const onEnterPress = (evt) => {
-		if (evt.keyCode == 13 && evt.shiftKey == false) {
+		if (evt.keyCode === 13 && evt.shiftKey === false) {
 			evt.preventDefault()
-			onCreateComment({ comment })
+			onCreateComment()
 		}
 	}
 	return (
 		<Stack>
 			<Text fontSize="md" fontWeight="semibold" lineHeight="short">Comments</Text>
 			<Stack isInline>
-				<Textarea isDisabled={!userContext.state.isAuthenticated} onKeyDown={onEnterPress} placeholder="Thoughts on this deal..." resize="none" value={comment} onChange={handleInputChange} size="sm" />
-				<IconButton isDisabled={!userContext.state.isAuthenticated} variantColor="blue" maxWidth="10px" height="80px" aria-label="Send Comment" icon="chevron-right" onClick={() => onCreateComment({ comment })} />
+				<Textarea
+					isDisabled={!userContext.state.isAuthenticated}
+					onKeyDown={onEnterPress}
+					placeholder="Thoughts on this deal..."
+					_placeholder={{
+						color: 'black'
+					}}
+					resize="none"
+					value={comment}
+					onChange={handleInputChange}
+					size="sm"
+				/>
+				<IconButton
+					isDisabled={!userContext.state.isAuthenticated}
+					variantColor="orange"
+					maxWidth="10px"
+					height="80px"
+					aria-label="Send Comment"
+					icon="chevron-right"
+					onClick={() => onCreateComment()}
+				/>
 			</Stack>
-			{comments && comments.map((comment) => (
-				<Stack>
-					{comment.comment === null ? console.log('') : <Comment username={comment.user.name} commentText={comment.comment} profile_pic={comment.user.profile_pic} />}
+			{comments && comments.map((dbComment) => (
+				<Stack
+					key={dbComment.user.name}
+				>
+					{dbComment.comment && (
+						<Comment
+							username={dbComment.user.name}
+							commentText={dbComment.comment}
+							profile_pic={dbComment.user.profile_pic}
+						/>
+					)}
 				</Stack>
 			))}
 

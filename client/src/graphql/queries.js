@@ -120,6 +120,7 @@ query findComments($dealId: uuid!) {
   user_deal(where: {deal_id: {_eq: $dealId}}) {
     comment
 	user {
+	  id
       profile_pic
       name
     }

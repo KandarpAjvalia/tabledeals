@@ -34,7 +34,9 @@ const DealInfo = ({ id }) => {
 				const openingTime = deal.restaurant.opening_time
 				const closingTime = deal.restaurant.closing_time
 				return (
-					<Stack>
+					<Stack
+						key={deal.id}
+					>
 						<DetailedDealCard
 							key={deal.id}
 							dealId={deal.id}
