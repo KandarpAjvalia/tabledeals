@@ -7,7 +7,8 @@ const mapVariants = {
 	dark: 'kajvalia/ckidsm04v2z651apgywfo3dhp'
 }
 
-const MapLocations = () => {
+// eslint-disable-next-line react/prop-types
+const MapLocations = ({ children }) => {
 	const { colorMode } = useColorMode()
 
 	const [viewport, setViewport] = useState({
@@ -19,17 +20,17 @@ const MapLocations = () => {
 	})
 
 	return (
-		<div>
-			<ReactMapGL
-				// eslint-disable-next-line react/jsx-props-no-spreading
-				{...viewport}
-				width="1000px"
-				height="700px"
-				mapStyle={`mapbox://styles/${mapVariants[colorMode]}`}
-				onViewportChange={(nextViewport) => setViewport(nextViewport)}
-				mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-			/>
-		</div>
+		<ReactMapGL
+			// eslint-disable-next-line react/jsx-props-no-spreading
+			{...viewport}
+			width="1000px"
+			height="700px"
+			mapStyle={`mapbox://styles/${mapVariants[colorMode]}`}
+			onViewportChange={(nextViewport) => setViewport(nextViewport)}
+			mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+		>
+			{children}
+		</ReactMapGL>
 	)
 }
 export default MapLocations
