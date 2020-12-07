@@ -3,7 +3,7 @@ import React, {
 } from 'react'
 import { useQuery, useMutation } from '@apollo/client'
 import {
-	Stack, Textarea, Text, IconButton
+	Stack, Textarea, Text, IconButton, useColorMode
 } from '@chakra-ui/core'
 import { Auth } from 'aws-amplify'
 import { Context as UserContext } from '../context/UserContext'
@@ -13,6 +13,8 @@ import { GET_COMMENTS_BY_ID_QUERY } from '../graphql/queries'
 
 // eslint-disable-next-line react/prop-types
 const CommentCard = ({ dealId }) => {
+	const { colorMode } = useColorMode()
+
 	const userContext = useContext(UserContext)
 	const userId = userContext.state.user && userContext.state.user.sub
 
@@ -97,7 +99,7 @@ const CommentCard = ({ dealId }) => {
 					onKeyDown={onEnterPress}
 					placeholder="Thoughts on this deal..."
 					_placeholder={{
-						color: 'black'
+						color: colorMode === 'light' ? 'black' : 'white'
 					}}
 					resize="none"
 					value={comment}
