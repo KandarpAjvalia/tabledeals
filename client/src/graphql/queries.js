@@ -116,8 +116,8 @@ export const GET_RESTAURANTS_ALL_INFO_QUERY = gql`
 	}
 `
 export const GET_COMMENTS_BY_ID_QUERY = gql`
-query findComments($id: uuid!) {
-  user_deal(where: {deal_id: {_eq: $id}}) {
+query findComments($dealId: uuid!) {
+  user_deal(where: {deal_id: {_eq: $dealId}}) {
     comment
 	user {
       profile_pic

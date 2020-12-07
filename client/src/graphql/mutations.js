@@ -38,10 +38,22 @@ export const UPSERT_USER_DEAL_MUTATION = gql`
 		}
 	}
 `
-export const CREATE_COMMENT_MUTATION = gql`
-	mutation createComment(
+export const UPSERT_COMMENT_MUTATION = gql`
+	mutation upsertComment(
+		$id: String!
+		$dealId: uuid!
 		$comment: String!
 	) {
-  insert_user_deal_one(objects: {comment: $comment})
-}
+	insert_user_deal_one(
+			object: {
+				id: $id, 
+				deal_id: $dealId,
+				comment: $comment
+			}, 
+			on_conflict: {
+				constraint: user_deal_id_key, update_columns: comment
+			}) {
+				comment
+				id
+		}}
 `
