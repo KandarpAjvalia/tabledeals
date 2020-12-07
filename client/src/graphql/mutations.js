@@ -42,8 +42,6 @@ export const CREATE_COMMENT_MUTATION = gql`
 	mutation createComment(
 		$comment: String!
 	) {
-		insert_deal_one(object: {
-			comment: $comment
-		}) 
-	}
+  insert_user_deal_one(objects: {comment: $comment})
+}
 `
