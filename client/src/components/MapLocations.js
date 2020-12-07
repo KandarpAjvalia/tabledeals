@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 import ReactMapGL from 'react-map-gl'
 const MapLocations = () => {
