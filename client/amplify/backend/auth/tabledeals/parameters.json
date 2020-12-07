@@ -90,5 +90,5 @@
             ]
         }
     ],
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\",\"https://tabledeals-mvp.herokuapp.com/\"],\"LogoutURLs\":[\"http://localhost:3000/\",\"https://tabledeals-mvp.herokuapp.com/\"]}"
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\",\"https://tabledeals-mvp.herokuapp.com/\",\"https://table-deals.herokuapp.com/\"],\"LogoutURLs\":[\"http://localhost:3000/\",\"https://tabledeals-mvp.herokuapp.com/\",\"https://table-deals.herokuapp.com/\"]}"
 }

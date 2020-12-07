@@ -9,8 +9,8 @@ import {
 	AspectRatioBox,
 	Image,
 	useColorMode
-}
-	from '@chakra-ui/core'
+} from '@chakra-ui/core'
+import { formatTime } from '../utils'
 import AddVote from './AddVote'
 
 const DetailedDealCard = ({
@@ -55,9 +55,7 @@ const DetailedDealCard = ({
 								Open from:
 							</Text>
 							<Text>
-								{openingTime}
-								-
-								{closingTime}
+								{`${formatTime(openingTime)} - ${formatTime(closingTime)}`}
 							</Text>
 						</Stack>
 
@@ -70,7 +68,7 @@ const DetailedDealCard = ({
 						</Stack>
 						<Stack ml={3} mt={2} mb={2} w="100%" pr={4}>
 							<Flex align="baseline">
-								<Badge variantColor="orange">{dealType}</Badge>
+								<Badge variantColor={dealType === 'Food' ? 'orange' : 'blue'}>{dealType}</Badge>
 							</Flex>
 							<Flex align="center" justify="space-between">
 								<Text fontSize="xl" fontWeight="semibold" lineHeight="short">

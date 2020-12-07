@@ -9,7 +9,7 @@ const LoginButton = () => {
 
 	return (
 		<>
-			<Button variant="ghost" onClick={onOpen}>
+			<Button variant="ghost" onClick={onOpen} m="2">
 				Sign In
 			</Button>
 			<Login isOpen={isOpen} onClose={onClose} />

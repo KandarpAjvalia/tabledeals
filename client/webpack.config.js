@@ -1,5 +1,5 @@
 const path = require('path')
-
+const Dotenv = require('dotenv-webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
@@ -32,6 +32,12 @@ module.exports = {
 		}, {
 			test: /\.css$/,
 			use: ['style-loader', 'css-loader']
+		}, {
+			test: /\.(png|jpg|gif)$/,
+			use: [{
+				loader: 'file-loader',
+				options: {}
+			}]
 		}]
 	},
 	devServer: {
@@ -40,6 +46,7 @@ module.exports = {
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: './src/index.html'
-		})
+		}),
+		new Dotenv()
 	]
 }

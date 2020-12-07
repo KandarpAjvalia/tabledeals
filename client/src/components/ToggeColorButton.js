@@ -7,7 +7,7 @@ const ToggleColorButton = () => {
 	return (
 		<Flex align="center" color="gray.500">
 			<IconButton
-				ml="3"
+				m="2"
 				onClick={toggleColorMode}
 				icon={colorMode === 'light' ? 'moon' : 'sun'}
 				variant="ghost"

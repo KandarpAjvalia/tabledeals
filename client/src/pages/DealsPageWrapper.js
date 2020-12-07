@@ -1,24 +1,24 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react'
 import { Box, useColorMode } from '@chakra-ui/core'
-import RestaurantsHeader from '../components/RestaurantsHeader'
-import RestaurantsSideBar from '../components/RestaurantsSideBar'
+import DealsHeader from '../components/DealsHeader'
+import DealSideBar from '../components/DealsSideBar'
 
-const RestaurantsPageWrapper = ({
+const PageWrapper = ({
 	// eslint-disable-next-line react/prop-types
-	children, restaurantSearch, handleRestaurantSearch, isDisabled = false, ...rest
+	children, dealSearch, handleDealSearch, isDisabled = false, ...rest
 }) => {
 	const { colorMode } = useColorMode()
 
 	return (
 		<>
-			<RestaurantsHeader
-				restaurantSearch={restaurantSearch}
-				handleRestaurantSearch={handleRestaurantSearch}
+			<DealsHeader
+				dealSearch={dealSearch}
+				handleDealSearch={handleDealSearch}
 				isDisabled={isDisabled}
 			/>
 			<Box>
-				<RestaurantsSideBar maxWidth="18rem" width="full" />
+				<DealSideBar maxWidth="18rem" width="full" />
 				<Box pl={[0, null, '18rem']} mt="4rem">
 					<Box
 						as="section"
@@ -34,4 +34,4 @@ const RestaurantsPageWrapper = ({
 	)
 }
 
-export default RestaurantsPageWrapper
+export default PageWrapper

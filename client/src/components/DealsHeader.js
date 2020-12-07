@@ -8,7 +8,7 @@ import { Context as UserContext } from '../context/UserContext'
 import ToggleColorButton from './ToggeColorButton'
 
 // eslint-disable-next-line react/prop-types
-const Header = ({ dealSearch, handleDealSearch }) => {
+const Header = ({ dealSearch, handleDealSearch, isDisabled }) => {
 	const userContext = useContext(UserContext)
 
 	const { colorMode } = useColorMode()
@@ -31,7 +31,12 @@ const Header = ({ dealSearch, handleDealSearch }) => {
 					<Box as="a" d="block" href="/" aria-label="TableDeals">
 						TableDeals
 					</Box>
-					<InputGroup display={['none', null, 'block']} width="100%" ml={16} mr={16}>
+					<InputGroup
+						display={['none', null, 'block']}
+						width="100%"
+						ml={16}
+						mr={16}
+					>
 						<InputLeftElement>
 							<Icon name="search" color="gray.500" />
 						</InputLeftElement>
@@ -41,6 +46,7 @@ const Header = ({ dealSearch, handleDealSearch }) => {
 							onChange={handleDealSearch}
 							placeholder="Search for deals"
 							bg={colorMode === 'light' ? 'gray.100' : 'gray.700'}
+							isDisabled={isDisabled}
 						/>
 					</InputGroup>
 					{userContext.state.isAuthenticated ? <LogoutButton /> : <LoginButton /> }

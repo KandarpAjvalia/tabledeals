@@ -7,12 +7,14 @@ export const CREATE_DEAL_MUTATION = gql`
 		$description: String!
 		$dealType: String!
 		$restaurantId: uuid!
+		$isVegetarian: Boolean!
 	) {
 		insert_deal_one(object: {
 			title: $title
 			description: $description
 			type: $dealType
 			restaurant_id: $restaurantId
+			isVegetarian: $isVegetarian
 		}) {
 			id
 		}
@@ -55,5 +57,27 @@ export const UPSERT_COMMENT_MUTATION = gql`
 			}) {
 				comment
 				id
-		}}
+			}
+	}
+`
+
+export const UPSERT_USER_DEAL_BOOKMARK_MUTATION = gql`
+	mutation upsertUserDeal(
+		$id: String!
+		$dealId: uuid!
+		$isBookmarked: Boolean!
+	) {
+		insert_user_deal_one(
+			object: {
+				id: $id, 
+				deal_id: $dealId,
+				isBookmarked: $isBookmarked
+			}, 
+			on_conflict: {
+				constraint: user_deal_id_key, update_columns: isBookmarked
+			}) {
+				isBookmarked
+				id
+		}
+	}
 `

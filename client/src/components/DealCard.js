@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {
 	Box, Badge, Text, Flex, Stack, useColorMode
 } from '@chakra-ui/core'
 import { Link } from 'react-router-dom'
+import { Context as UserContext } from '../context/UserContext'
 import AddVote from './AddVote'
+import AddBookmark from './AddBookmark'
 
 const DealCard = ({
 	// eslint-disable-next-line react/prop-types
-	title, restaurantName, city, state, dealType, dealId
+	title, restaurantName, city, state, dealType, dealId, isVegetarian
 }) => {
 	const { colorMode } = useColorMode()
+	const userContext = useContext(UserContext)
+	const { isAuthenticated } = userContext.state
 
 	return (
 		<Box
@@ -27,8 +31,23 @@ const DealCard = ({
 					/>
 				</Stack>
 				<Stack ml={3} mt={2} mb={2} w="100%" pr={4}>
-					<Flex align="baseline">
-						<Badge variantColor="orange">{dealType}</Badge>
+					<Flex align="baseline" justify="space-between">
+						<Box>
+							<Badge variantColor={dealType === 'Food' ? 'orange' : 'blue'} mr={2}>{dealType}</Badge>
+							{(() => {
+								if (dealType === 'Food') {
+									if (isVegetarian) {
+										return <Badge variantColor="green">Veg</Badge>
+									}
+								}
+								return null
+							})()}
+						</Box>
+						{isAuthenticated && (
+							<AddBookmark
+								dealId={dealId}
+							/>
+						)}
 					</Flex>
 					<Flex align="center" justify="space-between">
 						<Link to={`/deal/${dealId}`}>
