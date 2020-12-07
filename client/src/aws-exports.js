@@ -16,7 +16,7 @@ const awsmobile = {
             "profile",
             "aws.cognito.signin.user.admin"
         ],
-        "redirectSignIn": "http://localhost:3000/,https://tabledeals-mvp.herokuapp.com/,https://table-deals.herokuapp.com/deals/",
+        "redirectSignIn": "http://localhost:3000/,https://tabledeals-mvp.herokuapp.com/,https://table-deals.herokuapp.com/",
         "redirectSignOut": "http://localhost:3000/,https://tabledeals-mvp.herokuapp.com/,https://table-deals.herokuapp.com/",
         "responseType": "code"
     },
