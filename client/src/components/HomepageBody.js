@@ -42,7 +42,7 @@ export const Container = (props) => <Box width="full" maxWidth="1280px" mx="auto
 const HomepageBody = () => {
 	const { scrollYProgress } = useViewportScroll()
 
-	const xRotAnim = useTransform(scrollYProgress, [0, 0.25, 0.5], [30, 15, 0])
+	const xRotAnim = useTransform(scrollYProgress, [0, 0.125, 0.25], [30, 15, 0])
 
 	return (
 		<Box as="section" pt={40} pb={24}>
