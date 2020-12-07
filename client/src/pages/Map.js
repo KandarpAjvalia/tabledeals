@@ -9,6 +9,7 @@ const Map = () => (
 		mx="auto"
 		px={6}
 		py={6}
+		isDisabled
 	>
 		<MapLocations />
 	</RestaurantsPageWrapper>
