@@ -11,8 +11,8 @@ const mapVariants = {
 const MapLocations = ({ children }) => {
 	const { colorMode } = useColorMode()
 	const [viewport, setViewport] = useState({
-		latitude: 40.7357,
-		longitude: -74.1724,
+		latitude: 40.73795323582187,
+		longitude: -73.99010002209329,
 		zoom: 12,
 		bearing: 0,
 		pitch: 0,

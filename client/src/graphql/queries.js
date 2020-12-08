@@ -103,6 +103,7 @@ export const GET_DEAL_BY_ID_QUERY = gql`
 		) {
 			id
 			title
+			description
 			type
 			restaurant {
 				id

@@ -16,6 +16,7 @@ import AddVote from './AddVote'
 const DetailedDealCard = ({
 	dealId,
 	title,
+	dealDescription,
 	dealType,
 	resName,
 	description,
@@ -70,9 +71,12 @@ const DetailedDealCard = ({
 							<Flex align="baseline">
 								<Badge variantColor={dealType === 'Food' ? 'orange' : 'blue'}>{dealType}</Badge>
 							</Flex>
-							<Flex align="center" justify="space-between">
+							<Flex align="start" direction="column">
 								<Text fontSize="xl" fontWeight="semibold" lineHeight="short">
 									{title}
+								</Text>
+								<Text fontSize="md" lineHeight="short">
+									{dealDescription}
 								</Text>
 							</Flex>
 						</Stack>

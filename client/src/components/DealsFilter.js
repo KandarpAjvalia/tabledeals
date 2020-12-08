@@ -30,7 +30,7 @@ const DealFilter = (props) => {
 					defaultValue="Newark, NJ"
 					bg={colorMode === 'light' ? 'white' : 'gray.700'}
 				>
-					<option>Newark, NJ</option>
+					<option>New York, NY</option>
 				</Select>
 			</Box>
 			<Box>

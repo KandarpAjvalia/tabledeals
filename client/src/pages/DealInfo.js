@@ -42,6 +42,7 @@ const DealInfo = ({ id }) => {
 							dealId={deal.id}
 							title={deal.title}
 							dealType={deal.type}
+							dealDescription={deal.description}
 							resName={name}
 							city={city}
 							state={state}
