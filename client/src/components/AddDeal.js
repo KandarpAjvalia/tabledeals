@@ -41,6 +41,9 @@ const AddDeal = () => {
 	const [selectedRestaurantIndex, setSelectedRestaurantIndex] = useState(null)
 	const [isVegetarian, setIsVegetarian] = useState(false)
 
+	console.log(dealType)
+	console.log(selectedRestaurantIndex)
+
 	const { data } = useQuery(GET_RESTAURANTS_QUERY)
 	const [createDeal] = useMutation(CREATE_DEAL_MUTATION)
 
@@ -160,19 +163,19 @@ const AddDeal = () => {
 									id="restaurantId"
 									placeholder="Select a Restaurant"
 									data-testid="selectRestaurant"
+									onChange={(e) => setSelectedRestaurantIndex(e.target.selectedIndex - 1)}
 								>
-									{restaurants && restaurants.map((restaurant, i) => (
+									{restaurants && restaurants.map((restaurant) => (
 										<option
 											key={restaurant.id}
 											value={restaurant.id}
-											onClick={() => setSelectedRestaurantIndex(i)}
 										>
 											{restaurant.name}
 										</option>
 									))}
 								</Select>
 								<FormControl mt={4}>
-									{dealType === 'Food' && selectedRestaurantIndex && restaurants[selectedRestaurantIndex].isVegetarian ? (
+									{dealType === 'Food' && selectedRestaurantIndex && selectedRestaurantIndex >= 0 && restaurants[selectedRestaurantIndex].isVegetarian ? (
 										<Button
 											variantColor={isVegetarian ? 'green' : 'red'}
 											onClick={() => setIsVegetarian((prevState) => !prevState)}
