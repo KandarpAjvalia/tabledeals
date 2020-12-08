@@ -1,14 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {
 	Box, Text, Stack, CheckboxGroup, Checkbox, Select, useColorMode
 } from '@chakra-ui/core'
 import { useSearch } from '../hooks/search'
+import { Context as UserContext } from '../context/UserContext'
 
 const DealFilter = (props) => {
+	const userContext = useContext(UserContext)
+	const { isAuthenticated } = userContext.state
+
 	const { colorMode } = useColorMode()
 	const {
 		dealTypeFilters,
 		onDealTypeFilter,
+		dealOptionFilters,
+		onDealOptionFilter,
 		foodOptionFilters,
 		onFoodOptionFilter
 	} = useSearch()
@@ -41,6 +47,21 @@ const DealFilter = (props) => {
 					<Checkbox value="Food">Food</Checkbox>
 				</CheckboxGroup>
 			</Box>
+			{isAuthenticated && (
+				<Box>
+					<Text mb={2} fontWeight="bold">
+						Deals Option
+					</Text>
+					<CheckboxGroup
+						spacing={2}
+						variantColor="orange"
+						value={dealOptionFilters}
+						onChange={onDealOptionFilter}
+					>
+						<Checkbox value="Bookmarked">Bookmarked</Checkbox>
+					</CheckboxGroup>
+				</Box>
+			)}
 			{dealTypeFilters.includes('Food') && (
 				<Box>
 					<Text mb={2} fontWeight="bold">
