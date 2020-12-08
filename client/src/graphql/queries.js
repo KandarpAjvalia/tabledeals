@@ -147,3 +147,28 @@ query findComments($dealId: uuid!) {
   }
 }
 `
+export const GET_AUTH_DEALS_QUERY = gql`
+	query getDeals($userId: uuid!) {
+		deal {
+			id
+			title
+			description
+			type
+			isVegetarian
+			restaurant {
+				name
+				city
+				state
+			}
+			user_deals(
+				where: {
+					user_id: {
+						_eq: $userId
+					}
+				}
+			) {
+				isBookmarked
+			}
+		}
+	}
+`

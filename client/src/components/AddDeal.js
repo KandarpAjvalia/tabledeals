@@ -20,8 +20,7 @@ import {
 	Select,
 	Button,
 	RadioGroup,
-	Radio,
-	Stack
+	Radio
 } from '@chakra-ui/core'
 import { useQuery, useMutation } from '@apollo/client'
 import { Auth } from 'aws-amplify'
@@ -40,9 +39,6 @@ const AddDeal = () => {
 	const [restaurants, setRestaurants] = useState([])
 	const [selectedRestaurantIndex, setSelectedRestaurantIndex] = useState(null)
 	const [isVegetarian, setIsVegetarian] = useState(false)
-
-	console.log(dealType)
-	console.log(selectedRestaurantIndex)
 
 	const { data } = useQuery(GET_RESTAURANTS_QUERY)
 	const [createDeal] = useMutation(CREATE_DEAL_MUTATION)

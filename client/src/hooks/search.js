@@ -4,7 +4,7 @@ const searchContext = createContext()
 
 const useSearchProvider = () => {
 	const [dealTypeFilters, setDealTypeFilters] = useState(['Food', 'Drink'])
-
+	const [dealOptionFilters, setDealOptionFilters] = useState([])
 	const [foodOptionFilters, setFoodOptionFilters] = useState([])
 
 	const onDealTypeFilter = (newValues) => {
@@ -15,9 +15,15 @@ const useSearchProvider = () => {
 		setFoodOptionFilters(newValues)
 	}
 
+	const onDealOptionFilter = (newValues) => {
+		setDealOptionFilters(newValues)
+	}
+
 	return {
 		dealTypeFilters,
 		onDealTypeFilter,
+		dealOptionFilters,
+		onDealOptionFilter,
 		foodOptionFilters,
 		onFoodOptionFilter
 	}

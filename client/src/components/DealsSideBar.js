@@ -1,19 +1,22 @@
 import React from 'react'
 import {
-	Stack, Text, Box, Flex, useColorMode
+	Stack, Text, Box, Flex, useColorMode, Link
 } from '@chakra-ui/core'
-import { Link } from 'react-router-dom'
+// import { Link as RouteLink } from 'react-router-dom'
+import { ComponentLink } from './NavLink'
 import DealsFilter from './DealsFilter'
 import AddDeal from './AddDeal'
 
 // eslint-disable-next-line react/prop-types
 const SideBarLink = ({ href, children, icon }) => (
-	<Link to={href}>
+	<ComponentLink
+		href={href}
+	>
 		<Flex align="center" p={1}>
-			<Box as={icon} mr={3} w="24px" />
-			<Text fontWeight="bold">{children}</Text>
+			<Box as={icon} w="24px" />
+			<Text fontWeight="bold" ml={4}>{children}</Text>
 		</Flex>
-	</Link>
+	</ComponentLink>
 )
 
 const PageLinks = () => (
