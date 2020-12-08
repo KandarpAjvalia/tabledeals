@@ -1,6 +1,9 @@
+const webpack = require('webpack')
 const path = require('path')
 const Dotenv = require('dotenv-webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
 	entry: './src/index.js',
@@ -47,8 +50,10 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: './src/index.html'
 		}),
-		new Dotenv({
-			path: path.resolve(__dirname, '..', '.env')
-		})
+		isProd ? new webpack.DefinePlugin({
+			'process.env': {
+				REACT_APP_MAPBOX_ACCESS_TOKEN: JSON.stringify(process.env.REACT_APP_MAPBOX_ACCESS_TOKEN)
+			}
+		}) : new Dotenv()
 	]
 }

@@ -4,8 +4,8 @@
   "private": true,
   "proxy": "http://localhost:4000",
   "scripts": {
-    "dev": "npm run lint & webpack-dev-server --mode development --hot --port 3000 --host 0.0.0.0 --disable-host-check",
-    "build": "webpack --mode production",
+    "dev": "npm run lint & NODE_ENV=development webpack-dev-server --mode development --hot --port 3000 --host 0.0.0.0 --disable-host-check",
+    "build": "NODE_ENV=production webpack --mode production",
     "lint": "./node_modules/.bin/eslint --fix .",
     "test": "npm install && jest"
   },
