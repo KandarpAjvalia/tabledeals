@@ -2,6 +2,7 @@ const webpack = require('webpack')
 const path = require('path')
 const Dotenv = require('dotenv-webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+require('dotenv').config()
 
 const isProd = process.env.NODE_ENV === 'production'
 
