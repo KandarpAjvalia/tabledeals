@@ -3,7 +3,6 @@ import {
 	Stack, Text, Box, Flex, useColorMode
 } from '@chakra-ui/core'
 import { ComponentLink } from './NavLink'
-import MapIcon from '../icons/MapIcon'
 
 // eslint-disable-next-line react/prop-types
 const SideBarLink = ({ href, children, icon }) => (
@@ -33,7 +32,6 @@ const PageLinks = () => (
 		</SideBarLink>
 	</Stack>
 )
-
 
 const RestaurantsSideBar = (props) => {
 	const { colorMode } = useColorMode()

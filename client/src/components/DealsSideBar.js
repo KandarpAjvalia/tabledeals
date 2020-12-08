@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-	Stack, Text, Box, Flex, useColorMode, Link
+	Stack, Text, Box, Flex, useColorMode
 } from '@chakra-ui/core'
 // import { Link as RouteLink } from 'react-router-dom'
 import { ComponentLink } from './NavLink'
