@@ -52,5 +52,5 @@ it('AddDeal renders with restaurant list', async () => {
 
 	expect(addDealButton).not.toHaveFocus()
 	fireEvent.click(addDealButton)
-	expect(getByTestId('selectRestaurant')).toHaveTextContent('Jersey Tavern')
+	expect(getByTestId('selectRestaurant')).toHaveTextContent('Select a Restaurant')
 })
