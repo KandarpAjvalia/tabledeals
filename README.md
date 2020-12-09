@@ -10,8 +10,9 @@
 
 ### 💻 [Homepage](https://table-deals.herokuapp.com/)
 
-<img width="500" alt="homePage" src="https://user-images.githubusercontent.com/22509838/99138081-205ec480-25fc-11eb-93f4-619be2fa0e94.png">
-<img width="500" alt="dealsPage" src="https://user-images.githubusercontent.com/22509838/99138082-2359b500-25fc-11eb-820c-735e9139c80e.png">
+<img width="500" alt="homePage" src="https://user-images.githubusercontent.com/22509838/101565594-5b55dd00-399b-11eb-997e-d30a7867d5d4.png">
+<img width="500" alt="dealsPage" src="https://user-images.githubusercontent.com/22509838/101565633-6f014380-399b-11eb-9a2e-cab6a06e9c12.png">
+<img width="500" alt="restaurantsPage" src="https://user-images.githubusercontent.com/22509838/101565644-79234200-399b-11eb-8876-e9dc4af26ca4.png">
 
 
 ## Install Dependencies
