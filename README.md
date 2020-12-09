@@ -57,6 +57,7 @@ For more commands, checkout project root's **package.json**
     <li> Work on the Readme </li>
     <li> Initial setup of bookmark functionality via bookmark button </li>
     <li> Set up and styling of the restaurants page </li>
+    <li> Add information to landing page </li>
   </ul>
   
 <h4>Mohamed Shalaby</h4>
