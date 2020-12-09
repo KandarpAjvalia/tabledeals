@@ -22,14 +22,21 @@ const MotionBox = motion.custom(Box)
 const sectionData = [
 	{
 		title: 'Deals',
-		description: 'Find the best deals on your daily food. Search. Add. Vote. Comment',
+		subtitle: 'Start saving!',
+		description: 'Discover the best deals for food and drinks.',
+		description2: 'Search. Add. Vote. Comment.',
 		imagePosition: 'left',
 		imgW: '850px',
 		ImageComponent: DealImage
 	},
 	{
 		title: 'Restaurants',
-		description: 'Find the best restaurants near you, and see the deals at the restaurants',
+		subtitle: 'Find your next favorite restaurant!',
+		description: 'From fine dining to fast casual, explore the different restaurants near you. '
+		+ 'Satisfy your hunger and discover new flavors. '
+		+ 'Support local establishments and learn about the best deals they offer. '
+		+ 'They might find a \'regular\' and you might find your \'go-to\'.',
+		description2: '',
 		imagePosition: 'right',
 		imgW: '350px',
 		ImageComponent: RestaurantImage
@@ -75,11 +82,13 @@ const HomepageBody = () => {
 			</Container>
 			<Container>
 				{sectionData.map(({
-					title, description, imagePosition, ImageComponent, imgW
+					title, subtitle, description, description2, imagePosition, ImageComponent, imgW
 				}) => (
 					<AnimatedDealSection
 						title={title}
+						subtitle={subtitle}
 						description={description}
+						description2={description2}
 						ImageComponent={ImageComponent}
 						imagePosition={imagePosition}
 						imgW={imgW}

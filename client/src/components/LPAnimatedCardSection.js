@@ -29,7 +29,7 @@ const variant = {
 
 const AnimatedDeal = ({
 	// eslint-disable-next-line react/prop-types
-	title, description, ImageComponent, imagePosition = 'left', imgW
+	title, subtitle, description, description2, ImageComponent, imagePosition = 'left', imgW
 }) => {
 	const controls = useAnimation()
 	const [ref, inView] = useInView({
@@ -74,10 +74,15 @@ const AnimatedDeal = ({
 			initial="hidden"
 			variants={variant}
 			transition={{ duration: 2 }}
-			m={10}
+			m={25}
 		>
-			<Text opacity="0.7" fontSize="lg">
+			<Text opacity="0.8" fontSize="2xl" fontWeight="black" textAlign="left">
+				{subtitle}
+			</Text>
+			<Text opacity="0.7" fontSize="lg" textAlign="left">
 				{description}
+				{' '}
+				<b>{description2}</b>
 			</Text>
 		</MotionBox>
 	)
