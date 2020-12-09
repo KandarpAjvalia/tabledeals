@@ -33,7 +33,8 @@ const sectionData = [
 		title: 'Restaurants',
 		subtitle: 'Find your next favorite restaurant!',
 		description: 'From fine dining to fast casual, explore the different restaurants near you. '
-		+ 'Learn about the best deals they offer and support local establishments. '
+		+ 'Satisfy your hunger and discover new flavors. '
+		+ 'Support local establishments and learn about the best deals they offer. '
 		+ 'They might find a \'regular\' and you might find your \'go-to\'.',
 		description2: '',
 		imagePosition: 'right',

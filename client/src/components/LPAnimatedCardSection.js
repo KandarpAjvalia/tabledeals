@@ -74,7 +74,7 @@ const AnimatedDeal = ({
 			initial="hidden"
 			variants={variant}
 			transition={{ duration: 2 }}
-			m={11}
+			m={25}
 		>
 			<Text opacity="0.8" fontSize="2xl" fontWeight="black" textAlign="left">
 				{subtitle}
