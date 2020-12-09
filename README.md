@@ -8,7 +8,7 @@
 
 > A web app to find restaurant/bar deals.
 
-### 💻 [Homepage](https://tabledeals-mvp.herokuapp.com)
+### 💻 [Homepage](https://table-deals.herokuapp.com/)
 
 <img width="500" alt="homePage" src="https://user-images.githubusercontent.com/22509838/99138081-205ec480-25fc-11eb-93f4-619be2fa0e94.png">
 <img width="500" alt="dealsPage" src="https://user-images.githubusercontent.com/22509838/99138082-2359b500-25fc-11eb-820c-735e9139c80e.png">
@@ -42,10 +42,9 @@ For more commands, checkout project root's **package.json**
     <li> Setup React Context for global state for the app </li>
     <li> Developed Add Deal feature </li>
     <li> Provide technical support for team members - React, Hasura GraphQL, Chakra UI </li>
-  </ul>
-  <h6>Pending</h6>
-  <ul>
-    <li> Set up restaurant page (button exists but page is empty) </li>
+    <li> Final beautification/styling of landing page </li>
+    <li> Bookmark logic with appropriate calls to db </li>
+    <li> Deal filter functionality for vegetarian and bookmark </li>
   </ul>
   
 <h4>Gerry Agbay</h4>
@@ -55,10 +54,8 @@ For more commands, checkout project root's **package.json**
     <li> Set up database in Hasura – create tables, fields, and relationships </li>
     <li> Create rating deals functionality via upvote or downvote </li>
     <li> Work on the Readme </li>
-  </ul>
-  <h6>Pending</h6>
-  <ul>
-    <li> Fix voting inconsistency (increments incorrectly sometimes) </li>
+    <li> Initial setup of bookmark functionality via bookmark button </li>
+    <li> Set up and styling of the restaurants page </li>
   </ul>
   
 <h4>Mohamed Shalaby</h4>
@@ -68,10 +65,7 @@ For more commands, checkout project root's **package.json**
     <li> provide UI and visual design support with team </li>
     <li> Dark-light mode support </li>
     <li> Work on the Readme </li>
-  </ul>
-  <h6>Pending</h6>
-  <ul>
-    <li> Filter deals according to food or drink </li>
+    <li> Set up and implementation of map feature and page </li>
   </ul>
 
 <h4>Benjamin Robinson</h4>
@@ -81,12 +75,9 @@ For more commands, checkout project root's **package.json**
     <li> Initial set up of landing page </li>
     <li> Create detailed deals page </li>
     <li> Base styling for app pages </li>
+    <li> Implement commenting feature for deals </li>
   </ul>
-  <h6>Pending</h6>
-  <ul>
-    <li> Landing page in progress </li>
-    <li> Search bar for the deals page </li>
-  </ul>
+
 
 ## 🤝 Contributing
 
